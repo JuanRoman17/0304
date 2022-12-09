@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package modelo;
-
+import modelo.Candidato;
 /**
  *
  * @author Juan Diego Roman
@@ -12,24 +12,16 @@ public class Eleccion {
 
     private String canton;
     private int mesas;
-    private Candidato candidato;
+    private  int nroCandidatos;
     private int numeroVotos;
     private String lugarVotacion;
 
-    public Eleccion(String canton, int mesas, Candidato candidato, int numeroVotos, String lugarVotacion) {
+    public Eleccion(String canton, int mesas, int nroCandidatos, int numeroVotos, String lugarVotacion) {
         this.canton = canton;
         this.mesas = mesas;
-        this.candidato = candidato;
+        this.nroCandidatos = nroCandidatos;
         this.numeroVotos = numeroVotos;
         this.lugarVotacion = lugarVotacion;
-    }
-
-    public Eleccion(String canton, int mesa, int numeroVotos, String lugarVotacion, String candidato) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    public Eleccion(String publicidad, String campaña, String propuestas, String alianza, String beneficio) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     public String getCanton() {
@@ -48,12 +40,12 @@ public class Eleccion {
         this.mesas = mesas;
     }
 
-    public Candidato getCandidato() {
-        return candidato;
+    public int getNroCandidatos() {
+        return nroCandidatos;
     }
 
-    public void setCandidato(Candidato candidato) {
-        this.candidato = candidato;
+    public void setNroCandidatos(int nroCandidatos) {
+        this.nroCandidatos = nroCandidatos;
     }
 
     public int getNumeroVotos() {
@@ -74,6 +66,12 @@ public class Eleccion {
 
     @Override
     public String toString() {
-        return "Eleccion{" + "canton=" + canton + ", mesas=" + mesas + ", candidato=" + candidato + ", numeroVotos=" + numeroVotos + ", lugarVotacion=" + lugarVotacion + '}';
+        return "Eleccion{" + "canton=" + canton + ", mesas=" + mesas + ", nroCandidatos=" 
+                + nroCandidatos + ", numeroVotos=" + numeroVotos + ", lugarVotacion=" 
+                + lugarVotacion + '}';
     }
+
+    
+
+    
 }

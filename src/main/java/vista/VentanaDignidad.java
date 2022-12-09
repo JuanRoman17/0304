@@ -36,6 +36,11 @@ public class VentanaDignidad extends JFrame {
         this.jPanelList = new ArrayList<>();
         this.jTextFieldList = new ArrayList<>();
         this.jButtonList = new ArrayList<>();
+        
+        this.jButtonList.add(new JButton("Guardar"));
+        this.jButtonList.add(new JButton("Listar"));
+        
+        this.jTextFieldList.add(new JTextField("",5));
 
     }
 }

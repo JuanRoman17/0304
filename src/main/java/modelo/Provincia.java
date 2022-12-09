@@ -24,13 +24,10 @@ public class Provincia {
         this.nroHabitantes = nroHabitantes;
     }   
 
-    public Provincia(String nombre, int expancionTerritorial, String inicioCedula, String pais, String nroHabitantes) {
+    public Provincia(String nombre, double expancionTerritorial, String inicioCedula, String pais, double nroHabitantes) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    public Provincia(String nombre, int expancionTerritorial, String inicioCedula, String pais, int nroHabitantes) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 
     public String getNombre() {
         return nombre;
@@ -74,8 +71,9 @@ public class Provincia {
 
     @Override
     public String toString() {
-        return "Provincia{" + "nombre=" + nombre + ", expancionTerritorial=" + expancionTerritorial + ", inicioCedula=" + inicioCedula + ", pais=" + pais + ", nroHabitantes=" + nroHabitantes + '}';
+        return "Provincia{" + "nombre=" + nombre + ", expancionTerritorial=" 
+                + expancionTerritorial + ", inicioCedula=" + inicioCedula 
+                + ", pais=" + pais + ", nroHabitantes=" + nroHabitantes + '}';
     }
-    
-    
+   
 }

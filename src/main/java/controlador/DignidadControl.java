@@ -20,13 +20,13 @@ public class DignidadControl {
         dignidadServiceImpl = new DignidadServiceImpl();
     }
     
-    public void crear(String[] data) {
-        var canton = data[0];
-        var mesa = Integer.valueOf(data[1]).intValue();
-        var numeroVotos = Integer.valueOf(data[2]).intValue();
-        var lugarVotacion = data[3];
-        var candidato = data[4];
-        var dignidad = new Dignidad(canton,mesa,numeroVotos,lugarVotacion,candidato );
+    public void crear(String[] dat) {
+        var publicidad = dat[0];
+        var campaña = dat[1];
+        var propuestas = dat[2];
+        var alianza = dat[3];
+        var eleccion = dat[4];
+        var dignidad = new Dignidad(publicidad, campaña, propuestas, alianza, eleccion);
         this.dignidadServiceImpl.crear(dignidad);
     }
 

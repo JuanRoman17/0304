@@ -7,6 +7,7 @@ package controlador;
 import java.util.List;
 import modelo.Candidato;
 import servicio.CandidatoServiceImpl;
+import modelo.Dignidad;
 
 /**
  *
@@ -25,9 +26,9 @@ public class CandidatoControl {
         var edad=Integer.valueOf(data[1]).intValue();
         var genero=data[2];
         var lugarDeNacimiento=data[3];
-        var religion=data[4];
+        var dignidad=data[4];
         var añoActual=Integer.valueOf(data[5]).intValue();
-        var candidato=new Candidato(nombreCandidato, edad, genero, lugarDeNacimiento, religion, añoActual );
+        var candidato=new Candidato(nombreCandidato, edad, genero, lugarDeNacimiento, dignidad, añoActual );
         this.candidatoServiceImpl.crear(candidato);
     }
     public List<Candidato> listar(){

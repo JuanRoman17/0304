@@ -14,15 +14,20 @@ public class Candidato {
     private int edad;
     private String genero;
     private String lugarDeNacimiento;
-    private String religion;
+    private Dignidad dignidad;
     private int añoActual;
 
-    public Candidato(String nombreCandidato, int edad, String genero, String lugarDeNacimiento, String religion, int añoActual) {
+    public Candidato(String nombreCandidato, int edad, String genero, String lugarDeNacimiento, Dignidad dignidad, int añoActual) {
         this.nombreCandidato = nombreCandidato;
         this.edad = edad;
         this.genero = genero;
         this.lugarDeNacimiento = lugarDeNacimiento;
-        this.religion = religion;
+        this.dignidad = dignidad;
+        this.añoActual = añoActual;
+    }
+
+    public Candidato(String nombreCandidato, int edad, String genero, String lugarDeNacimiento, String dignidad, int añoActual) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     public String getNombreCandidato() {
@@ -57,12 +62,12 @@ public class Candidato {
         this.lugarDeNacimiento = lugarDeNacimiento;
     }
 
-    public String getReligion() {
-        return religion;
+    public Dignidad getDignidad() {
+        return dignidad;
     }
 
-    public void setReligion(String religion) {
-        this.religion = religion;
+    public void setDignidad(Dignidad dignidad) {
+        this.dignidad = dignidad;
     }
 
     public int getAñoActual() {
@@ -75,10 +80,10 @@ public class Candidato {
 
     @Override
     public String toString() {
-        return "Candidato{" + "nombreCandidato=" + nombreCandidato + ", edad="
-                + edad + ", genero=" + genero + ", lugarDeNacimiento="
-                + lugarDeNacimiento + ", religion=" + religion + ", a\u00f1oActual="
+        return "Candidato{" + "nombreCandidato=" + nombreCandidato + ", edad=" 
+                + edad + ", genero=" + genero + ", lugarDeNacimiento=" 
+                + lugarDeNacimiento + ", dignidad=" + dignidad + ", a\u00f1oActual=" 
                 + añoActual + '}';
     }
-
+    
 }

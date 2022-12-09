@@ -20,13 +20,13 @@ public class EleccionControl {
         eleccionServiceImpl = new EleccionServiceImpl();
     }
 
-    public void crear(String[] data) {
-        var publicidad = data[0];
-        var campaña = data[1];
-        var propuestas = data[2];
-        var alianza = data[3];
-        var beneficio = data[4];
-        var eleccion = new Eleccion(publicidad,campaña,propuestas,alianza,beneficio);
+    public void crear(String[] dato) {
+        var canton = dato[0];
+        var mesas = Integer.valueOf(dato[1]).intValue();
+        var nrocandidatos=Integer.valueOf(dato[2]).intValue();
+        var numeroVotos = Integer.valueOf(dato[3]).intValue();
+        var lugarVotacion = dato[4];
+        var eleccion = new Eleccion(canton,mesas,nrocandidatos,numeroVotos, lugarVotacion );
         this.eleccionServiceImpl.crear(eleccion);
     }
 

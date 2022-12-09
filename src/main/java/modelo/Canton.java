@@ -24,13 +24,10 @@ public Canton(String nombre, double expancionTerritorial, double nroHabitantes, 
         this.provincia = provincia;
     }
 
-    public Canton(String nombre, int expancionTerritorial, String nroHabitantes, String pais, String provincia) {
+    public Canton(String nombre, double expancionTerritorial, double nroHabitantes, String pais, String provincia) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    public Canton(String nombre, int expancionTerritorial, int nroHabitantes, String pais, String provincia) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 
     public String getNombre() {
         return nombre;

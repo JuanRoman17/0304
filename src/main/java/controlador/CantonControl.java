@@ -22,8 +22,8 @@ public class CantonControl {
     
     public void crear(String [] data){
         var nombre=data[0];
-        var expancionTerritorial=Integer.valueOf(data[1]).intValue();//double
-        var nroHabitantes=Integer.valueOf(data[2]).intValue();//double
+        var expancionTerritorial=Double.valueOf(data[1]).doubleValue();//double
+        var nroHabitantes=Double.valueOf(data[2]).doubleValue();//double
         var pais=data[3];
         var provincia=data[4];
         var canton=new Canton(nombre, expancionTerritorial, nroHabitantes, pais, provincia );
