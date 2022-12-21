@@ -21,12 +21,11 @@ public class CandidatoControl {
         candidatoServiceImpl = new CandidatoServiceImpl();
     }
     
-    public void crear(String [] data){
+    public void crear(String [] data, Dignidad dignidad){
         var nombreCandidato=data[0];
         var edad=Integer.valueOf(data[1]).intValue();
         var genero=data[2];
         var lugarDeNacimiento=data[3];
-        var dignidad=data[4];
         var añoActual=Integer.valueOf(data[5]).intValue();
         var candidato=new Candidato(nombreCandidato, edad, genero, lugarDeNacimiento, dignidad, añoActual );
         this.candidatoServiceImpl.crear(candidato);

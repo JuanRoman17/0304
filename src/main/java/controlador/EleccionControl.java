@@ -5,6 +5,7 @@
 package controlador;
 
 import java.util.List;
+import modelo.Candidato;
 import modelo.Eleccion;
 import servicio.EleccionServiceImpl;
 
@@ -20,13 +21,13 @@ public class EleccionControl {
         eleccionServiceImpl = new EleccionServiceImpl();
     }
 
-    public void crear(String[] dato) {
+    public void crear(String[] dato, Candidato candidato) {
         var canton = dato[0];
         var mesas = Integer.valueOf(dato[1]).intValue();
         var nrocandidatos=Integer.valueOf(dato[2]).intValue();
         var numeroVotos = Integer.valueOf(dato[3]).intValue();
         var lugarVotacion = dato[4];
-        var eleccion = new Eleccion(canton,mesas,nrocandidatos,numeroVotos, lugarVotacion );
+        var eleccion = new Eleccion(canton,mesas,candidato,numeroVotos, lugarVotacion );
         this.eleccionServiceImpl.crear(eleccion);
     }
 

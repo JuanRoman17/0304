@@ -12,14 +12,14 @@ public class Eleccion {
 
     private String canton;
     private int mesas;
-    private  int nroCandidatos;
+    private  Candidato candidato;
     private int numeroVotos;
     private String lugarVotacion;
 
-    public Eleccion(String canton, int mesas, int nroCandidatos, int numeroVotos, String lugarVotacion) {
+    public Eleccion(String canton, int mesas, Candidato candidato, int numeroVotos, String lugarVotacion) {
         this.canton = canton;
         this.mesas = mesas;
-        this.nroCandidatos = nroCandidatos;
+        this.candidato = candidato;
         this.numeroVotos = numeroVotos;
         this.lugarVotacion = lugarVotacion;
     }
@@ -40,12 +40,12 @@ public class Eleccion {
         this.mesas = mesas;
     }
 
-    public int getNroCandidatos() {
-        return nroCandidatos;
+    public Candidato getCandidato() {
+        return candidato;
     }
 
-    public void setNroCandidatos(int nroCandidatos) {
-        this.nroCandidatos = nroCandidatos;
+    public void setCandidato(Candidato candidato) {
+        this.candidato = candidato;
     }
 
     public int getNumeroVotos() {
@@ -66,12 +66,11 @@ public class Eleccion {
 
     @Override
     public String toString() {
-        return "Eleccion{" + "canton=" + canton + ", mesas=" + mesas + ", nroCandidatos=" 
-                + nroCandidatos + ", numeroVotos=" + numeroVotos + ", lugarVotacion=" 
-                + lugarVotacion + '}';
+        return "Eleccion{" + "canton=" + canton + ", mesas=" + mesas + 
+                ", candidato=" + candidato + ", numeroVotos=" + numeroVotos +
+                ", lugarVotacion=" + lugarVotacion + '}';
     }
-
     
-
+    
     
 }

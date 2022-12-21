@@ -15,19 +15,15 @@ public class Candidato {
     private String genero;
     private String lugarDeNacimiento;
     private Dignidad dignidad;
-    private int añoActual;
+    private int nroLista;
 
-    public Candidato(String nombreCandidato, int edad, String genero, String lugarDeNacimiento, Dignidad dignidad, int añoActual) {
+    public Candidato(String nombreCandidato, int edad, String genero, String lugarDeNacimiento, Dignidad dignidad, int nroLista) {
         this.nombreCandidato = nombreCandidato;
         this.edad = edad;
         this.genero = genero;
         this.lugarDeNacimiento = lugarDeNacimiento;
         this.dignidad = dignidad;
-        this.añoActual = añoActual;
-    }
-
-    public Candidato(String nombreCandidato, int edad, String genero, String lugarDeNacimiento, String dignidad, int añoActual) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.nroLista = nroLista;
     }
 
     public String getNombreCandidato() {
@@ -70,20 +66,21 @@ public class Candidato {
         this.dignidad = dignidad;
     }
 
-    public int getAñoActual() {
-        return añoActual;
+    public int getNroLista() {
+        return nroLista;
     }
 
-    public void setAñoActual(int añoActual) {
-        this.añoActual = añoActual;
+    public void setNroLista(int nroLista) {
+        this.nroLista = nroLista;
     }
 
     @Override
     public String toString() {
         return "Candidato{" + "nombreCandidato=" + nombreCandidato + ", edad=" 
-                + edad + ", genero=" + genero + ", lugarDeNacimiento=" 
-                + lugarDeNacimiento + ", dignidad=" + dignidad + ", a\u00f1oActual=" 
-                + añoActual + '}';
+                + edad + ", genero=" + genero + ", lugarDeNacimiento=" + 
+                lugarDeNacimiento + ", dignidad=" + dignidad + ", nroLista=" + nroLista + '}';
     }
+
     
+
 }
