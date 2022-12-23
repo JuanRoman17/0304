@@ -14,14 +14,14 @@ public class Dignidad {
     private String campaña;
     private String propuestas;
     private String alianza;
-    private Eleccion eleccion;
+    
 
-    public Dignidad(String publicidad, String campaña, String propuestas, String alianza, Eleccion eleccion) {
+    public Dignidad(String publicidad, String campaña, String propuestas, String alianza) {
         this.publicidad = publicidad;
         this.campaña = campaña;
         this.propuestas = propuestas;
         this.alianza = alianza;
-        this.eleccion = eleccion;
+       
     }
 
     public Dignidad(String publicidad, String campaña, String propuestas, String alianza, String eleccion) {
@@ -60,19 +60,13 @@ public class Dignidad {
         this.alianza = alianza;
     }
 
-    public Eleccion getEleccion() {
-        return eleccion;
-    }
-
-    public void setEleccion(Eleccion eleccion) {
-        this.eleccion = eleccion;
-    }
+    
 
     @Override
     public String toString() {
         return "Dignidad{" + "publicidad=" + publicidad + ", campa\u00f1a=" 
                 + campaña + ", propuestas=" + propuestas + ", alianza=" + alianza 
-                + ", eleccion=" + eleccion + '}';
+                 + '}';
     }
 
     

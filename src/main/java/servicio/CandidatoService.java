@@ -16,5 +16,12 @@ public interface CandidatoService {
     public void crear(Candidato candidato);
 
     public List<Candidato> listar();
+    
+    public Candidato buscarPorLista(int lista);
+    public Candidato buscarPorNombre(String nombreCandidato);
+    
+    public void modificar(Candidato candidato, int lista);
+
+    public void eliminar(int lista);
 
 }

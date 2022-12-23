@@ -29,4 +29,40 @@ public class DignidadServiceImpl implements DignidadService {
     public List<Dignidad> listar() {
         return this.dignidadList;
     }
+
+    @Override
+    public Dignidad buscarPorAlianza(String alianza) {
+        Dignidad retorno = null;
+        for (var dignidad : this.dignidadList) {
+            if (alianza == dignidad.getAlianza()) {
+                retorno = dignidad;
+                break;
+            }
+        }
+        return retorno;
+    }
+
+    @Override
+    public void modificar(Dignidad dignidad, String alianza) {
+        var indice = -1;
+        for (var dignidades : this.dignidadList ){
+            indice++;
+            if(alianza ==dignidades.getAlianza()){
+                this.dignidadList.set(indice, dignidad);
+            }
+        }
+    }
+
+    @Override
+    public void eliminar(String alianza) {
+        var indice = -1;
+        for (var dignidades : this.dignidadList) {
+            indice++;
+            if (alianza == dignidades.getAlianza()) {
+                this.dignidadList.remove(indice);
+
+            }
+
+        }
+    }
 }

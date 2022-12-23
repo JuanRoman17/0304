@@ -11,17 +11,17 @@ import modelo.Candidato;
 public class Eleccion {
 
     private String canton;
-    private int mesas;
     private  Candidato candidato;
     private int numeroVotos;
-    private String lugarVotacion;
+    private Dignidad dignidad;
+    private int nroEleccion;
 
-    public Eleccion(String canton, int mesas, Candidato candidato, int numeroVotos, String lugarVotacion) {
+    public Eleccion(String canton, Candidato candidato, int numeroVotos, Dignidad dignidad, int nroEleccion) {
         this.canton = canton;
-        this.mesas = mesas;
         this.candidato = candidato;
         this.numeroVotos = numeroVotos;
-        this.lugarVotacion = lugarVotacion;
+        this.dignidad = dignidad;
+        this.nroEleccion = nroEleccion;
     }
 
     public String getCanton() {
@@ -30,14 +30,6 @@ public class Eleccion {
 
     public void setCanton(String canton) {
         this.canton = canton;
-    }
-
-    public int getMesas() {
-        return mesas;
-    }
-
-    public void setMesas(int mesas) {
-        this.mesas = mesas;
     }
 
     public Candidato getCandidato() {
@@ -56,21 +48,28 @@ public class Eleccion {
         this.numeroVotos = numeroVotos;
     }
 
-    public String getLugarVotacion() {
-        return lugarVotacion;
+    public Dignidad getDignidad() {
+        return dignidad;
     }
 
-    public void setLugarVotacion(String lugarVotacion) {
-        this.lugarVotacion = lugarVotacion;
+    public void setDignidad(Dignidad dignidad) {
+        this.dignidad = dignidad;
+    }
+
+    public int getNroEleccion() {
+        return nroEleccion;
+    }
+
+    public void setNroEleccion(int nroEleccion) {
+        this.nroEleccion = nroEleccion;
     }
 
     @Override
     public String toString() {
-        return "Eleccion{" + "canton=" + canton + ", mesas=" + mesas + 
-                ", candidato=" + candidato + ", numeroVotos=" + numeroVotos +
-                ", lugarVotacion=" + lugarVotacion + '}';
+        return "Eleccion{" + "canton=" + canton + ", candidato=" + candidato 
+                + ", numeroVotos=" + numeroVotos + ", dignidad=" + dignidad + ", nroelecion=" + nroEleccion + '}';
     }
-    
+
     
     
 }

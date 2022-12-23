@@ -14,15 +14,15 @@ public class Candidato {
     private int edad;
     private String genero;
     private String lugarDeNacimiento;
-    private Dignidad dignidad;
+    
     private int nroLista;
 
-    public Candidato(String nombreCandidato, int edad, String genero, String lugarDeNacimiento, Dignidad dignidad, int nroLista) {
+    public Candidato(String nombreCandidato, int edad, String genero, String lugarDeNacimiento, int nroLista) {
         this.nombreCandidato = nombreCandidato;
         this.edad = edad;
         this.genero = genero;
         this.lugarDeNacimiento = lugarDeNacimiento;
-        this.dignidad = dignidad;
+        
         this.nroLista = nroLista;
     }
 
@@ -58,13 +58,7 @@ public class Candidato {
         this.lugarDeNacimiento = lugarDeNacimiento;
     }
 
-    public Dignidad getDignidad() {
-        return dignidad;
-    }
-
-    public void setDignidad(Dignidad dignidad) {
-        this.dignidad = dignidad;
-    }
+    
 
     public int getNroLista() {
         return nroLista;
@@ -78,7 +72,7 @@ public class Candidato {
     public String toString() {
         return "Candidato{" + "nombreCandidato=" + nombreCandidato + ", edad=" 
                 + edad + ", genero=" + genero + ", lugarDeNacimiento=" + 
-                lugarDeNacimiento + ", dignidad=" + dignidad + ", nroLista=" + nroLista + '}';
+                lugarDeNacimiento + ", nroLista=" + nroLista + '}';
     }
 
     

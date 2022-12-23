@@ -25,13 +25,34 @@ public class DignidadControl {
         var campaña = dat[1];
         var propuestas = dat[2];
         var alianza = dat[3];
-        var eleccion = dat[4];
-        var dignidad = new Dignidad(publicidad, campaña, propuestas, alianza, eleccion);
+        
+        var dignidad = new Dignidad(publicidad, campaña, propuestas, alianza);
         this.dignidadServiceImpl.crear(dignidad);
     }
+    
+    public String modificar(String[] dat){
+        var retorno = "No se pudo crear";
+        
+        var publicidad = dat[0];
+        var campaña = dat[1];
+        var propuestas = dat[2];
+        var alianza = dat[3];
+        
+        var dignidad = new Dignidad(publicidad, campaña, propuestas, alianza);
+        
+        this.dignidadServiceImpl.modificar(dignidad, alianza);
+        retorno = "Dignidad"+ dignidad.getAlianza()+"Modificado";
+        return retorno;
+    }
+    
 
     public List<Dignidad> listar() {
         return this.dignidadServiceImpl.listar();
         
+    }
+    public void eliminar(String alianzas){
+        
+        var alianza = alianzas;
+        this.dignidadServiceImpl.eliminar(alianza);
     }
 }

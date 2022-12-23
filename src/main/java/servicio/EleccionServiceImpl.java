@@ -13,9 +13,9 @@ import modelo.Eleccion;
  * @author Juan Diego Roman
  */
 public class EleccionServiceImpl implements EleccionService {
-    
+
     private List<Eleccion> eleccionList;
-    
+
     public EleccionServiceImpl() {
         eleccionList = new ArrayList<>();
     }
@@ -29,7 +29,44 @@ public class EleccionServiceImpl implements EleccionService {
     public List<Eleccion> listar() {
         return this.eleccionList;
     }
-    
-    
-    
+
+    @Override
+    public Eleccion buscarPorNroEleccion(int nroEleccion) {
+        Eleccion retorno = null;
+        for (var eleccion : this.eleccionList) {
+            if (nroEleccion == eleccion.getNroEleccion()) {
+                retorno = eleccion;
+                break;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public void modificar(Eleccion eleccion, int nroEleccion) {
+        var indice = -1;
+        for (var eleciones : this.eleccionList) {
+            indice++;
+            if (nroEleccion == eleciones.getNroEleccion()) {
+                this.eleccionList.set(indice, eleccion);
+            }
+        }
+    }
+
+    @Override
+    public void eliminar(int nroEleccion) {
+        
+        var indice = -1;
+        for (var eleciones : this.eleccionList) {
+            indice++;
+            if (nroEleccion == eleciones.getNroEleccion()) {
+                this.eleccionList.remove(indice);
+
+            }
+
+        }
+
+    }
 }
+
+

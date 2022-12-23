@@ -14,6 +14,12 @@ import modelo.Eleccion;
 public interface EleccionService {
     
     public void crear(Eleccion eleccion);
+    
+    public Eleccion buscarPorNroEleccion(int nroeleccion);
+    
+    public void modificar(Eleccion eleccion, int nroeleccion);
+
+    public void eliminar(int nroeleccion);
 
     public List<Eleccion> listar();
     

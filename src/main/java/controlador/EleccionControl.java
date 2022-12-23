@@ -5,8 +5,9 @@
 package controlador;
 
 import java.util.List;
-import modelo.Candidato;
 import modelo.Eleccion;
+import servicio.CandidatoServiceImpl;
+import servicio.DignidadServiceImpl;
 import servicio.EleccionServiceImpl;
 
 /**
@@ -15,24 +16,50 @@ import servicio.EleccionServiceImpl;
  */
 public class EleccionControl {
 
-    private EleccionServiceImpl eleccionServiceImpl;
+    private EleccionServiceImpl eleccionServiceImpl = new EleccionServiceImpl();
+    private DignidadServiceImpl dignidadServiceImpl = new DignidadServiceImpl();
+    private CandidatoServiceImpl candidatoServiceImpl = new CandidatoServiceImpl();
 
     public EleccionControl() {
         eleccionServiceImpl = new EleccionServiceImpl();
     }
 
-    public void crear(String[] dato, Candidato candidato) {
+    public void crear(String[] dato) {
         var canton = dato[0];
-        var mesas = Integer.valueOf(dato[1]).intValue();
-        var nrocandidatos=Integer.valueOf(dato[2]).intValue();
-        var numeroVotos = Integer.valueOf(dato[3]).intValue();
-        var lugarVotacion = dato[4];
-        var eleccion = new Eleccion(canton,mesas,candidato,numeroVotos, lugarVotacion );
+        var candidato = this.candidatoServiceImpl.buscarPorLista(Integer.valueOf(dato[1]).intValue());
+        var numeroVotos = Integer.valueOf(dato[2]).intValue();
+        var dignidad = this.dignidadServiceImpl.buscarPorAlianza(dato[3]);
+        var nroEleccion = Integer.valueOf(dato[4]).intValue();
+        var eleccion = new Eleccion(canton, candidato, numeroVotos, dignidad, nroEleccion);
         this.eleccionServiceImpl.crear(eleccion);
     }
 
+    public String modificar(String[] dato) {
+        var retorno = "No se pudo modificar";
+
+        var canton = dato[0];
+        var candidato = this.candidatoServiceImpl.buscarPorLista(Integer.valueOf(dato[1]).intValue());
+        var numeroVotos = Integer.valueOf(dato[2]).intValue();
+        var dignidad = this.dignidadServiceImpl.buscarPorAlianza(dato[3]);
+        var nroEleccion = Integer.valueOf(dato[4]).intValue();
+        var eleccion = new Eleccion(canton, candidato, numeroVotos, dignidad, nroEleccion);
+
+        this.eleccionServiceImpl.modificar(eleccion, nroEleccion);
+        retorno = "Se modifico";
+        return retorno;
+
+    }
+
     public List<Eleccion> listar() {
+
         return this.eleccionServiceImpl.listar();
+
+    }
+
+    public void eliminar(int nroElecciones) {
+
+        var nroeleccion = Integer.valueOf(nroElecciones).intValue();
+        this.eleccionServiceImpl.eliminar(nroElecciones);
 
     }
 

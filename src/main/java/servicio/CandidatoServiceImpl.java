@@ -14,10 +14,10 @@ import modelo.Candidato;
  */
 public class CandidatoServiceImpl implements CandidatoService {
 
-    private List<Candidato> candidatoList;
+    private static List<Candidato> candidatoList;
 
     public CandidatoServiceImpl() {
-        candidatoList = new ArrayList<>();
+        this.candidatoList = new ArrayList<>();
     }
 
     @Override
@@ -28,6 +28,57 @@ public class CandidatoServiceImpl implements CandidatoService {
     @Override
     public List<Candidato> listar() {
         return this.candidatoList;
+    }
+
+    @Override
+    public Candidato buscarPorLista(int lista) {
+        Candidato retorno = null;
+        for (var candidato : this.candidatoList) {
+            if (lista == candidato.getNroLista()) {
+                retorno = candidato;
+                break;
+            }
+        }
+        return retorno;
+    }
+
+    @Override
+    public Candidato buscarPorNombre(String nombre) {
+        Candidato retorno = null;
+
+        for (var candidato : this.candidatoList) {
+            if (nombre.equals(candidato.getNombreCandidato())) {
+                retorno = candidato;
+                break;
+            }
+        }
+
+        return retorno;
+    }
+
+    @Override
+    public void modificar(Candidato candidato, int lista) {
+        var indice = -1;
+        for (var candidatos : this.candidatoList ){
+            indice++;
+            if(lista ==candidatos.getNroLista()){
+                this.candidatoList.set(indice, candidato);
+            }
+        }
+    }
+
+    @Override
+    public void eliminar(int lista) {
+         var indice = -1;
+        for (var candidatos : this.candidatoList) {
+            indice++;
+            if (lista == candidatos.getNroLista()) {
+                this.candidatoList.remove(indice);
+
+            }
+
+        }
+    
     }
 
 }

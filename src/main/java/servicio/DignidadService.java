@@ -14,6 +14,13 @@ import modelo.Dignidad;
 public interface DignidadService {
     
     public void crear(Dignidad dignidad);
+    
+    public Dignidad buscarPorAlianza(String alianza);
+    
+    
+    public void modificar(Dignidad dignidad, String alianza);
+
+    public void eliminar(String alianza);
 
     public List<Dignidad> listar();
     

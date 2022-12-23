@@ -7,32 +7,62 @@ package controlador;
 import java.util.List;
 import modelo.Candidato;
 import servicio.CandidatoServiceImpl;
-import modelo.Dignidad;
 
 /**
  *
  * @author Juan Diego Roman
  */
 public class CandidatoControl {
-    
+
     private CandidatoServiceImpl candidatoServiceImpl;
-    
-    public CandidatoControl(){
+
+    public CandidatoControl() {
         candidatoServiceImpl = new CandidatoServiceImpl();
     }
-    
-    public void crear(String [] data, Dignidad dignidad){
-        var nombreCandidato=data[0];
-        var edad=Integer.valueOf(data[1]).intValue();
-        var genero=data[2];
-        var lugarDeNacimiento=data[3];
-        var añoActual=Integer.valueOf(data[5]).intValue();
-        var candidato=new Candidato(nombreCandidato, edad, genero, lugarDeNacimiento, dignidad, añoActual );
+
+    public void crear(String[] data) {
+
+        var nombreCandidato = data[0];
+        var edad = Integer.valueOf(data[1]).intValue();
+        var genero = data[2];
+        var lugarDeNacimiento = data[3];
+        var nrolista = Integer.valueOf(data[4]).intValue();
+        var candidato = new Candidato(nombreCandidato, edad, genero, lugarDeNacimiento, nrolista);
         this.candidatoServiceImpl.crear(candidato);
     }
-    public List<Candidato> listar(){
-        return this.candidatoServiceImpl.listar();
-    
+
+    public String modifcar(String[] data) {
+        var retorno = "No se pudo crear el candidato";
+
+        var nombreCandidato = data[0];
+        var edad = Integer.valueOf(data[1]).intValue();
+        var genero = data[2];
+        var lugarDeNacimiento = data[3];
+        var nrolista = Integer.valueOf(data[4]).intValue();
+        var candidato = new Candidato(nombreCandidato, edad, genero, lugarDeNacimiento, nrolista);
+
+        this.candidatoServiceImpl.modificar(candidato, nrolista);
+        retorno = "Candidato " + candidato.getNombreCandidato() + " Modificado";
+
+        return retorno;
+
     }
+
+    public List<Candidato> listar() {
+        return this.candidatoServiceImpl.listar();
+
+    }
+
+    public void eliminar(int listas) {
+
+        var lista = Integer.valueOf(listas).intValue();
+        this.candidatoServiceImpl.eliminar(lista);
+    }
+    public Candidato buscarPorNombre(String nombreCandidato){
+        return this.candidatoServiceImpl.buscarPorNombre(nombreCandidato);
+        
+    }
+
     
+
 }

@@ -11,10 +11,18 @@ package vista;
 public class Principal {
 
     public static void main(String[] args) {
-        
-        var ventanaCandidato=new VentanaCandidato();
-        
+
+        var ventanaCandidato = new VentanaCandidato();
+
         ventanaCandidato.setVisible(true);
+
+        var ventanaEleccion = new VentanaEleccion();
+
+        ventanaEleccion.setVisible(true);
+
+        var ventanaDignidad = new VentanaDignidad();
+        
+        ventanaDignidad.setVisible(true);
 
     }
 }
