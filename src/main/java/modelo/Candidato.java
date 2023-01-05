@@ -17,7 +17,9 @@ public class Candidato {
     
     private int nroLista;
 
-    public Candidato(String nombreCandidato, int edad, String genero, String lugarDeNacimiento, int nroLista) {
+    public Candidato(String nombreCandidato, int edad, String genero, 
+            String lugarDeNacimiento, int nroLista) {
+        
         this.nombreCandidato = nombreCandidato;
         this.edad = edad;
         this.genero = genero;

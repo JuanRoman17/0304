@@ -53,7 +53,7 @@ public class CandidatoControl {
 
     }
 
-    public void eliminar(int listas) {
+    public void eliminar(String listas) {
 
         var lista = Integer.valueOf(listas).intValue();
         this.candidatoServiceImpl.eliminar(lista);
@@ -62,6 +62,8 @@ public class CandidatoControl {
         return this.candidatoServiceImpl.buscarPorNombre(nombreCandidato);
         
     }
+
+    
 
     
 
