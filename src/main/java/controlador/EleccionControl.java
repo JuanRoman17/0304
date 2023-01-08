@@ -56,10 +56,10 @@ public class EleccionControl {
 
     }
 
-    public void eliminar(int nroElecciones) {
+    public void eliminar(String nroElecciones) {
 
         var nroeleccion = Integer.valueOf(nroElecciones).intValue();
-        this.eleccionServiceImpl.eliminar(nroElecciones);
+        this.eleccionServiceImpl.eliminar(nroeleccion);
 
     }
 

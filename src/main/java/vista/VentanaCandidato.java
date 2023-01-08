@@ -5,12 +5,13 @@
 package vista;
 
 import controlador.CandidatoControl;
+import javax.swing.JInternalFrame;
 
 /**
  *
  * @author Juan Diego Roman
  */
-public class VentanaCandidato extends javax.swing.JFrame {
+public class VentanaCandidato extends javax.swing.JInternalFrame {
 
     private CandidatoControl candidatoControl ;
 
@@ -20,6 +21,10 @@ public class VentanaCandidato extends javax.swing.JFrame {
     public VentanaCandidato() {
         initComponents();
         this.candidatoControl = new CandidatoControl();
+        this.setClosable(true);
+        this.setIconifiable(true);
+        this.setResizable(true);
+        this.setDefaultCloseOperation(JInternalFrame.DISPOSE_ON_CLOSE);
     }
 
     /**
@@ -66,7 +71,7 @@ public class VentanaCandidato extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("Nombre");
 
@@ -230,7 +235,7 @@ public class VentanaCandidato extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3)
                     .addComponent(jButton4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -245,9 +250,7 @@ public class VentanaCandidato extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -284,7 +287,7 @@ public class VentanaCandidato extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        //this.recuperarDatosIngresados();
+        this.recuperarDatosIngresados();
         this.actualizarTabla();
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -307,11 +310,11 @@ public class VentanaCandidato extends javax.swing.JFrame {
         retorno[0] = this.jTextField1.getText();
         retorno[1] = this.jTextField2.getText();
         if (this.jRadioButton1.isSelected()) {
-            retorno[2] = "MASCULINO";
+            retorno[2] = "Masculino";
 
         } else {
             if (this.jRadioButton2.isSelected()) {
-                retorno[2] = "FEMENINO";
+                retorno[2] = "Femenino";
             } else {
 
             }

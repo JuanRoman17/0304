@@ -7,40 +7,34 @@ package vista;
 import controlador.CandidatoControl;
 import controlador.DignidadControl;
 import controlador.EleccionControl;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Juan Diego Roman
  */
-public class VentanaEleccion extends javax.swing.JFrame {
-
+public class VentanaEleccionCrear extends javax.swing.JInternalFrame {
+    
     private EleccionControl eleccionControl;
-    private DignidadControl dignidadCOntrol = new DignidadControl();
     private CandidatoControl candidatoControl = new CandidatoControl();
+    private DignidadControl dignidadControl = new DignidadControl();
 
     /**
-     * Creates new form VentanaEleccion
+     * Creates new form VentanaEleccionCrear
      */
-    public VentanaEleccion() {
+    public VentanaEleccionCrear() {
         initComponents();
         this.eleccionControl = new EleccionControl();
         this.actualizarCombos();
-
+        
     }
-
-    private void actualizarCombos() {
-
-        var data = new String[this.candidatoControl.listar().size()];
-        for (var i = 0; i < this.candidatoControl.listar().size(); i++) {
-            data[i] = this.candidatoControl.listar().get(i).getNombreCandidato();
-
+    private void actualizarCombos(){
+        var data = new String [this.eleccionControl.listar().size()];
+        for(var i=0;i<this.eleccionControl.listar().size();i++){
+            data[i]=this.eleccionControl.listar().get(i).toString();
         }
-        
-        var data1 = new String[this.dignidadCOntrol.listar().size()];
-        for(var i = 0; i < this.dignidadCOntrol.listar().size();i++){
-            data1[i] = this.dignidadCOntrol.listar().get(i).getAlianza();
-        }
-        
+        this.jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(data));
+        this.jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(data));
     }
 
     /**
@@ -52,56 +46,32 @@ public class VentanaEleccion extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jLabel6 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
-
-        jLabel1.setText("jLabel1");
+        jButton1 = new javax.swing.JButton();
+        jTextField3 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("Guardar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+        jLabel5.setText("Candidato");
 
-        jButton2.setText("Listar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
+        jLabel4.setText("Nro de Eleccion");
 
-        jButton3.setText("Modificar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
+        jLabel3.setText("Nro de Votos");
 
-        jButton4.setText("Eliminar");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
+        jLabel2.setText("Canton");
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pais", "Creo", "Social", "Cristiana" }));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pepe", "Jose", "Mario", "Camila" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -110,19 +80,7 @@ public class VentanaEleccion extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setText("Canton");
-
-        jLabel3.setText("Nro de Votos");
-
-        jLabel4.setText("Nro de Eleccion");
-
-        jLabel5.setText("Candidato");
-
-        jTextField1.setText(" ");
-
-        jTextField2.setText(" ");
-
-        jTextField3.setText(" ");
+        jLabel6.setText("Dignidad");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -137,9 +95,18 @@ public class VentanaEleccion extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jLabel6.setText("Dignidad");
+        jButton1.setText("Guardar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pais", "Creo", "Social", "Cristiana" }));
+        jTextField3.setText(" ");
+
+        jTextField2.setText(" ");
+
+        jTextField1.setText(" ");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -152,38 +119,32 @@ public class VentanaEleccion extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(28, 28, 28)))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(28, 28, 28)))
+                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(25, 25, 25)))
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jButton1)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jButton2))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jButton1)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(0, 0, Short.MAX_VALUE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton4)
-                        .addGap(12, 12, 12))
+                        .addGap(184, 184, 184))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -211,11 +172,7 @@ public class VentanaEleccion extends javax.swing.JFrame {
                     .addComponent(jLabel6)
                     .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4))
+                .addComponent(jButton1)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14))
@@ -235,9 +192,16 @@ public class VentanaEleccion extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+
+        // TODO add your handling code here:
+        //this.candidatoControl.buscarPorNombre(nombreCandidato);
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        String[] data = new String[5];
+        if (JOptionPane.showConfirmDialog(this, "Crear eleccion", "Seleccione una opción", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE) == 0) {
+            String[] data = new String[5];
 
         data[0] = this.jTextField1.getText();
         data[1] = this.jTextField2.getText();
@@ -248,82 +212,92 @@ public class VentanaEleccion extends javax.swing.JFrame {
 
         this.eleccionControl.crear(data);
         this.actualizarTabla();
+        
+        JOptionPane.showMessageDialog(rootPane, "Eleccion se creo");
+        }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
-    
     public void actualizarTabla() {
-        
-        
-        var dato = new Object[this.eleccionControl.listar().size()][5];
+        var dat = new Object[this.eleccionControl.listar().size()][5];
         for (var i = 0; i < this.eleccionControl.listar().size(); i++) {
 
-            dato[i][0] = this.eleccionControl.listar().get(i).getCanton();
-            dato[i][1] = this.eleccionControl.listar().get(i).getNumeroVotos();
-            dato[i][2] = this.eleccionControl.listar().get(i).getNroEleccion();
-            dato[i][3] = this.eleccionControl.listar().get(i).getCandidato().getNroLista();
-            dato[i][4] = this.eleccionControl.listar().get(i).getDignidad().getAlianza();
-            
-            
+            dat[i][0] = this.eleccionControl.listar().get(i).getCanton();
+            dat[i][1] = this.eleccionControl.listar().get(i).getCandidato();
+            dat[i][2] = this.eleccionControl.listar().get(i).getNumeroVotos();
+            dat[i][3] = this.eleccionControl.listar().get(i).getDignidad();
+            dat[i][4] = this.eleccionControl.listar().get(i).getNroEleccion();
 
         }
 
         var encabezado = new String[5];
         encabezado[0] = "Canton";
-        encabezado[1] = "Nro Votos";
-        encabezado[2] = "Nro Eleccion";
-        encabezado[3] = "Candidato";
-        encabezado[4] = "Dignidad";
-    
+        encabezado[1] = "Candidato";
+        encabezado[2] = "NumeroVotos";
+        encabezado[3] = "Dignidad";
+        encabezado[4] = "NroEleccion";
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(dato, encabezado));
-        
-        
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(dat, encabezado));
     }
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+
+    private void limpiarDatosIngresados() {
+        this.jTextField1.setText("");
+        this.jTextField2.setText("");
+        this.jTextField3.setText("");
+        this.jComboBox1.setSelectedItem(ABORT);
+        this.jComboBox2.setSelectedItem(ABORT);
         
-        // TODO add your handling code here:
-        //this.candidatoControl.buscarPorNombre(nombreCandidato);
-    }//GEN-LAST:event_jComboBox1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        this.actualizarCombos();
-        this.actualizarTabla();
-    
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-        String[] data = new String[4];
+    private String[] recuperarDatosIngresados() {
+        String[] retorno = new String[5];
+        retorno[0] = this.jTextField1.getText();
+        retorno[1] = this.jTextField2.getText();
+        retorno[2] = this.jTextField3.getText();
+        retorno[3] = this.jComboBox1.getSelectedItem().toString();
+        retorno[4] = this.jComboBox1.getSelectedItem().toString();
 
-        data[0] = this.jTextField1.getText();
-        data[1] = this.jTextField2.getText();
-        data[2] = this.jTextField3.getText();
-        data[3] = this.jComboBox1.getSelectedItem().toString();
-        data[4] = this.jComboBox2.getSelectedItem().toString();
-
-     
-        this.eleccionControl.modificar(data);
-        this.actualizarTabla();
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-        var data = this.jTextField3.getText();
-        this.eleccionControl.eliminar(data);
-    }//GEN-LAST:event_jButton4ActionPerformed
-
+        return retorno;
+    }
     /**
      * @param args the command line arguments
      */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(VentanaEleccionCrear.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(VentanaEleccionCrear.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(VentanaEleccionCrear.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(VentanaEleccionCrear.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new VentanaEleccionCrear().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
