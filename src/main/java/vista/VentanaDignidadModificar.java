@@ -13,14 +13,13 @@ import javax.swing.JInternalFrame;
  */
 public class VentanaDignidadModificar extends javax.swing.JInternalFrame {
     
-    private DignidadControl dignidadControl;
+    private DignidadControl dignidadControl = new DignidadControl();;
 
     /**
      * Creates new form VentanaDignidadModificar
      */
     public VentanaDignidadModificar() {
         initComponents();
-        this.dignidadControl = new DignidadControl();
         this.setClosable(true);
         this.setIconifiable(true);
         this.setResizable(true);
@@ -61,7 +60,6 @@ public class VentanaDignidadModificar extends javax.swing.JInternalFrame {
         jLabel8 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
-        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -176,14 +174,6 @@ public class VentanaDignidadModificar extends javax.swing.JInternalFrame {
             }
         });
 
-        jTextField5.setText(" ");
-
-        jTextField6.setText("  ");
-
-        jTextField7.setText(" ");
-
-        jTextField8.setText(" ");
-
         jLabel5.setText("Publicidad");
 
         jLabel6.setText("Campaña");
@@ -224,19 +214,13 @@ public class VentanaDignidadModificar extends javax.swing.JInternalFrame {
                                     .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
                                     .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(0, 214, Short.MAX_VALUE))
-                                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton2)
-                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 214, Short.MAX_VALUE)))))
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+                                    .addComponent(jTextField6)
+                                    .addComponent(jTextField7)
+                                    .addComponent(jTextField8)))
+                            .addComponent(jButton2))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -258,9 +242,7 @@ public class VentanaDignidadModificar extends javax.swing.JInternalFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel9)
-                .addGap(18, 18, 18)
+                .addGap(36, 36, 36)
                 .addComponent(jButton2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -316,7 +298,7 @@ public class VentanaDignidadModificar extends javax.swing.JInternalFrame {
             dat[i][0] = this.dignidadControl.listar().get(i).getPublicidad();
             dat[i][1] = this.dignidadControl.listar().get(i).getCampaña();
             dat[i][2] = this.dignidadControl.listar().get(i).getPropuestas();
-            dat[i][3] = this.dignidadControl.listar().get(i).getCodigo();
+            dat[i][3] = Integer.toString(this.dignidadControl.listar().get(i).getCodigo());
 
         }
 
@@ -324,12 +306,12 @@ public class VentanaDignidadModificar extends javax.swing.JInternalFrame {
         encabezado[0] = "Publicidad";
         encabezado[1] = "Campañà";
         encabezado[2] = "Propuestas";
-        encabezado[3] = "Alianza";
+        encabezado[3] = "Codigo";
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(dat, encabezado));
     }
 
-    private void limpiarDatosIngresados() {
+   /* private void limpiarDatosIngresados() {
         this.jTextField1.setText("");
         this.jTextField2.setText("");
         this.jTextField3.setText("");
@@ -345,7 +327,7 @@ public class VentanaDignidadModificar extends javax.swing.JInternalFrame {
         retorno[3] = this.jTextField4.getText();
 
         return retorno;
-    }
+    }/*
     /**
      * @param args the command line arguments
      */
@@ -393,7 +375,6 @@ public class VentanaDignidadModificar extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;

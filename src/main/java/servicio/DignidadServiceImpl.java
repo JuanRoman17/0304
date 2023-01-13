@@ -14,7 +14,7 @@ import modelo.Dignidad;
  */
 public class DignidadServiceImpl implements DignidadService {
     
-    private List<Dignidad> dignidadList;
+    private static List<Dignidad> dignidadList;
 
     public DignidadServiceImpl() {
         dignidadList = new ArrayList<>();
@@ -45,9 +45,9 @@ public class DignidadServiceImpl implements DignidadService {
     @Override
     public void modificar(Dignidad dignidad, int codigo) {
         var indice = -1;
-        for (var dignidades : this.dignidadList ){
+        for (var candidatos : this.dignidadList ){
             indice++;
-            if(codigo ==dignidades.getCodigo()){
+            if(codigo ==candidatos.getCodigo()){
                 this.dignidadList.set(indice, dignidad);
             }
         }

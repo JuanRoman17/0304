@@ -15,44 +15,44 @@ import servicio.DignidadServiceImpl;
 public class DignidadControl {
 
     private DignidadServiceImpl dignidadServiceImpl;
-    
+
     public DignidadControl() {
         dignidadServiceImpl = new DignidadServiceImpl();
     }
-    
+
     public void crear(String[] dat) {
-        
+
         var publicidad = dat[0];
         var campaña = dat[1];
         var propuestas = dat[2];
         var codigo = Integer.valueOf(dat[3]).intValue();
-        var dignidad = new Dignidad(publicidad,campaña,propuestas,codigo);
-        
+        var dignidad = new Dignidad(publicidad, campaña, propuestas, codigo);
+
         this.dignidadServiceImpl.crear(dignidad);
     }
-    
-    public String modificar(String[] dat){
+
+    public String modificar(String[] dat) {
         var retorno = "No se pudo crear";
-        
+
         var publicidad = dat[0];
         var campaña = dat[1];
         var propuestas = dat[2];
         var codigo = Integer.valueOf(dat[3]).intValue();
-        
+
         var dignidad = new Dignidad(publicidad, campaña, propuestas, codigo);
-        
+
         this.dignidadServiceImpl.modificar(dignidad, codigo);
-        retorno = "Dignidad"+ dignidad.getCodigo()+"Modificado";
+        retorno = "Dignidad" + dignidad.getCodigo() + "Modificado";
         return retorno;
     }
-    
 
     public List<Dignidad> listar() {
         return this.dignidadServiceImpl.listar();
-        
+
     }
-    public void eliminar(String codigos){
-        
+
+    public void eliminar(String codigos) {
+
         var codigo = Integer.valueOf(codigos).intValue();
         this.dignidadServiceImpl.eliminar(codigo);
     }

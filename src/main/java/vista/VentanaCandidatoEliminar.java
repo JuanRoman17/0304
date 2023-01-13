@@ -23,7 +23,6 @@ public class VentanaCandidatoEliminar extends javax.swing.JInternalFrame {
      */
     public VentanaCandidatoEliminar() {
         initComponents();
-
         this.setClosable(true);
         this.setIconifiable(true);
         this.setResizable(true);

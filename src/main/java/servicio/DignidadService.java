@@ -15,12 +15,12 @@ public interface DignidadService {
 
     public void crear(Dignidad dignidad);
 
+    public List<Dignidad> listar();
+
     public Dignidad buscarPorCodigo(int codigo);
 
     public void modificar(Dignidad dignidad, int codigo);
 
     public void eliminar(int codigo);
-
-    public List<Dignidad> listar();
 
 }

@@ -12,15 +12,14 @@ import javax.swing.JInternalFrame;
  * @author Juan Diego Roman
  */
 public class VentanaDignidadEliminar extends javax.swing.JInternalFrame {
-    private DignidadControl dignidadControl;
 
+    private DignidadControl dignidadControl = new DignidadControl();
 
     /**
      * Creates new form VentanaDignidadEliminar
      */
     public VentanaDignidadEliminar() {
         initComponents();
-        this.dignidadControl = new DignidadControl();
         this.setClosable(true);
         this.setIconifiable(true);
         this.setResizable(true);

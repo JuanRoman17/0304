@@ -21,11 +21,15 @@ public class VentanaDignidadListar extends javax.swing.JInternalFrame {
      */
     public VentanaDignidadListar() {
         initComponents();
+        this.setClosable(true);
+        this.setIconifiable(true);
+        this.setResizable(true);
+        this.setDefaultCloseOperation(JInternalFrame.DISPOSE_ON_CLOSE);
 
     }
     
     public void ActualizarTabla(){
-        var dato = new Object[this.dignidadControl.listar().size()][6];
+        var dato = new Object[this.dignidadControl.listar().size()][4];
         for (var i = 0; i < this.dignidadControl.listar().size(); i++){
             
             dato[i][0] = this.dignidadControl.listar().get(i).getPublicidad();
