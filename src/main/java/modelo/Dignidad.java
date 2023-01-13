@@ -13,19 +13,13 @@ public class Dignidad {
     private String publicidad;
     private String campaña;
     private String propuestas;
-    private String alianza;
-    
+    private int codigo;
 
-    public Dignidad(String publicidad, String campaña, String propuestas, String alianza) {
+    public Dignidad(String publicidad, String campaña, String propuestas, int codigo) {
         this.publicidad = publicidad;
         this.campaña = campaña;
         this.propuestas = propuestas;
-        this.alianza = alianza;
-       
-    }
-
-    public Dignidad(String publicidad, String campaña, String propuestas, String alianza, String eleccion) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.codigo = codigo;
     }
 
     public String getPublicidad() {
@@ -52,23 +46,18 @@ public class Dignidad {
         this.propuestas = propuestas;
     }
 
-    public String getAlianza() {
-        return alianza;
+    public int getCodigo() {
+        return codigo;
     }
 
-    public void setAlianza(String alianza) {
-        this.alianza = alianza;
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
-
-    
 
     @Override
     public String toString() {
-        return "Dignidad{" + "publicidad=" + publicidad + ", campa\u00f1a=" 
-                + campaña + ", propuestas=" + propuestas + ", alianza=" + alianza 
-                 + '}';
+        return "Dignidad{" + "publicidad=" + publicidad + ", campa\u00f1a="
+                + campaña + ", propuestas=" + propuestas + ", codigo=" + codigo + '}';
     }
-
-    
 
 }

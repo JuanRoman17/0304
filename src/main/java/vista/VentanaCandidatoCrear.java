@@ -14,14 +14,13 @@ import javax.swing.JOptionPane;
  */
 public class VentanaCandidatoCrear extends javax.swing.JInternalFrame {
 
-    private CandidatoControl candidatoControl;
+    private CandidatoControl candidatoControl = new CandidatoControl();
 
     /**
      * Creates new form VentanaCandidatoGuardar
      */
     public VentanaCandidatoCrear() {
         initComponents();
-        this.candidatoControl = new CandidatoControl();
         this.setClosable(true);
         this.setIconifiable(true);
         this.setResizable(true);
@@ -221,23 +220,23 @@ public class VentanaCandidatoCrear extends javax.swing.JInternalFrame {
             data[4] = this.jTextField4.getText();
 
             this.candidatoControl.crear(data);
-            this.actualizarTabla();
+            this.ActualizarTabla();
 
             JOptionPane.showMessageDialog(rootPane, "El cadidato se creo");
 
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed
-    public void actualizarTabla() {
+    public void ActualizarTabla() {
 
         var data = new Object[this.candidatoControl.listar().size()][5];
         for (var i = 0; i < this.candidatoControl.listar().size(); i++) {
 
             data[i][0] = this.candidatoControl.listar().get(i).getNombreCandidato();
-            data[i][1] = this.candidatoControl.listar().get(i).getEdad();
+            data[i][1] = Integer.toString(this.candidatoControl.listar().get(i).getEdad());
             data[i][2] = this.candidatoControl.listar().get(i).getGenero();
             data[i][3] = this.candidatoControl.listar().get(i).getLugarDeNacimiento();
-            data[i][4] = this.candidatoControl.listar().get(i).getNroLista();
+            data[i][4] = Integer.toString(this.candidatoControl.listar().get(i).getNroLista());
 
         }
 
@@ -250,6 +249,17 @@ public class VentanaCandidatoCrear extends javax.swing.JInternalFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(data, encabezado));
 
+    }
+    public String[] recuperarDatosIngresados() {
+        String[] retorno = new String[5];
+        retorno[0] = this.jTextField1.getText();
+        retorno[1] = this.jTextField2.getText();
+        retorno[2]=this.jRadioButton1.getText();
+        retorno[2]=this.jRadioButton1.getText();
+        retorno[3] = this.jTextField4.getText();
+        
+       
+        return retorno;
     }
 
     /**

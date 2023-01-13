@@ -12,14 +12,15 @@ import javax.swing.JInternalFrame;
  * @author Juan Diego Roman
  */
 public class VentanaCandidatoListar extends javax.swing.JInternalFrame {
-     private CandidatoControl candidatoControl ;
+
+    private CandidatoControl candidatoControl = new CandidatoControl();
+    private VentanaCandidatoCrear ventanaCandidatoCrear;
 
     /**
      * Creates new form VentanaCandidatoListar
      */
     public VentanaCandidatoListar() {
         initComponents();
-        this.candidatoControl = new CandidatoControl();
         this.setClosable(true);
         this.setIconifiable(true);
         this.setResizable(true);
@@ -114,20 +115,20 @@ public class VentanaCandidatoListar extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        //this.recuperarDatosIngresados();
+
         this.actualizarTabla();
-        
+        //this.candidatoControl.listar();
     }//GEN-LAST:event_jButton1ActionPerformed
-public void actualizarTabla() {
+    public void actualizarTabla() {
 
         var data = new Object[this.candidatoControl.listar().size()][5];
         for (var i = 0; i < this.candidatoControl.listar().size(); i++) {
 
             data[i][0] = this.candidatoControl.listar().get(i).getNombreCandidato();
-            data[i][1] = this.candidatoControl.listar().get(i).getEdad();
+            data[i][1] = Integer.toString(this.candidatoControl.listar().get(i).getEdad());
             data[i][2] = this.candidatoControl.listar().get(i).getGenero();
             data[i][3] = this.candidatoControl.listar().get(i).getLugarDeNacimiento();
-            data[i][4] = this.candidatoControl.listar().get(i).getNroLista();
+            data[i][4] = Integer.toString(this.candidatoControl.listar().get(i).getNroLista());
 
         }
 
@@ -141,6 +142,7 @@ public void actualizarTabla() {
         jTable1.setModel(new javax.swing.table.DefaultTableModel(data, encabezado));
 
     }
+
     /**
      * @param args the command line arguments
      */

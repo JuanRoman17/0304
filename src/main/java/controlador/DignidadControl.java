@@ -21,12 +21,13 @@ public class DignidadControl {
     }
     
     public void crear(String[] dat) {
+        
         var publicidad = dat[0];
         var campaña = dat[1];
         var propuestas = dat[2];
-        var alianza = dat[3];
+        var codigo = Integer.valueOf(dat[3]).intValue();
+        var dignidad = new Dignidad(publicidad,campaña,propuestas,codigo);
         
-        var dignidad = new Dignidad(publicidad, campaña, propuestas, alianza);
         this.dignidadServiceImpl.crear(dignidad);
     }
     
@@ -36,12 +37,12 @@ public class DignidadControl {
         var publicidad = dat[0];
         var campaña = dat[1];
         var propuestas = dat[2];
-        var alianza = dat[3];
+        var codigo = Integer.valueOf(dat[3]).intValue();
         
-        var dignidad = new Dignidad(publicidad, campaña, propuestas, alianza);
+        var dignidad = new Dignidad(publicidad, campaña, propuestas, codigo);
         
-        this.dignidadServiceImpl.modificar(dignidad, alianza);
-        retorno = "Dignidad"+ dignidad.getAlianza()+"Modificado";
+        this.dignidadServiceImpl.modificar(dignidad, codigo);
+        retorno = "Dignidad"+ dignidad.getCodigo()+"Modificado";
         return retorno;
     }
     
@@ -50,9 +51,9 @@ public class DignidadControl {
         return this.dignidadServiceImpl.listar();
         
     }
-    public void eliminar(String alianzas){
+    public void eliminar(String codigos){
         
-        var alianza = alianzas;
-        this.dignidadServiceImpl.eliminar(alianza);
+        var codigo = Integer.valueOf(codigos).intValue();
+        this.dignidadServiceImpl.eliminar(codigo);
     }
 }

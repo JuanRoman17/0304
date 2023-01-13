@@ -12,18 +12,35 @@ import javax.swing.JInternalFrame;
  * @author Juan Diego Roman
  */
 public class VentanaDignidadListar extends javax.swing.JInternalFrame {
-    private DignidadControl dignidadControl;
+    
+    private DignidadControl dignidadControl = new DignidadControl();
+    private VentanaDignidadCrear ventandaDignidadCrear;
 
     /**
      * Creates new form VentanaDignidadCrear
      */
     public VentanaDignidadListar() {
         initComponents();
-        this.dignidadControl = new DignidadControl();
-        this.setClosable(true);
-        this.setIconifiable(true);
-        this.setResizable(true);
-        this.setDefaultCloseOperation(JInternalFrame.DISPOSE_ON_CLOSE);
+
+    }
+    
+    public void ActualizarTabla(){
+        var dato = new Object[this.dignidadControl.listar().size()][6];
+        for (var i = 0; i < this.dignidadControl.listar().size(); i++){
+            
+            dato[i][0] = this.dignidadControl.listar().get(i).getPublicidad();
+            dato[i][1] = this.dignidadControl.listar().get(i).getCampaña();
+            dato[i][2] = this.dignidadControl.listar().get(i).getPropuestas();
+            dato[i][3] = Integer.toString(this.dignidadControl.listar().get(i).getCodigo());
+            
+        }
+        var encabezado = new String[4];
+        encabezado[0] = "Publicidad";
+        encabezado[1] = "Campañà";
+        encabezado[2] = "Propuestas";
+        encabezado[3] = "Codigo";
+        
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(dato, encabezado));
     }
 
     /**
@@ -96,28 +113,10 @@ public class VentanaDignidadListar extends javax.swing.JInternalFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        this.actualizarTabla();
+        this.ActualizarTabla();
+
     }//GEN-LAST:event_jButton2ActionPerformed
-    public void actualizarTabla() {
-        var dat = new Object[this.dignidadControl.listar().size()][4];
-        for (var i = 0; i < this.dignidadControl.listar().size(); i++) {
 
-            dat[i][0] = this.dignidadControl.listar().get(i).getPublicidad();
-            dat[i][1] = this.dignidadControl.listar().get(i).getCampaña();
-            dat[i][2] = this.dignidadControl.listar().get(i).getPropuestas();
-            dat[i][3] = this.dignidadControl.listar().get(i).getAlianza();
-
-        }
-
-        var encabezado = new String[4];
-        encabezado[0] = "Publicidad";
-        encabezado[1] = "Campañà";
-        encabezado[2] = "Propuestas";
-        encabezado[3] = "Alianza";
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(dat, encabezado));
-    
-    }
     /**
      * @param args the command line arguments
      */

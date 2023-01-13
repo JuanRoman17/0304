@@ -28,6 +28,7 @@ public class CandidatoControl {
         var lugarDeNacimiento = data[3];
         var nrolista = Integer.valueOf(data[4]).intValue();
         var candidato = new Candidato(nombreCandidato, edad, genero, lugarDeNacimiento, nrolista);
+        
         this.candidatoServiceImpl.crear(candidato);
     }
 

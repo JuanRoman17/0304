@@ -12,16 +12,15 @@ import modelo.Dignidad;
  * @author Juan Diego Roman
  */
 public interface DignidadService {
-    
-    public void crear(Dignidad dignidad);
-    
-    public Dignidad buscarPorAlianza(String alianza);
-    
-    
-    public void modificar(Dignidad dignidad, String alianza);
 
-    public void eliminar(String alianza);
+    public void crear(Dignidad dignidad);
+
+    public Dignidad buscarPorCodigo(int codigo);
+
+    public void modificar(Dignidad dignidad, int codigo);
+
+    public void eliminar(int codigo);
 
     public List<Dignidad> listar();
-    
+
 }

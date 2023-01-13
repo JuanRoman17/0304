@@ -12,15 +12,16 @@ import javax.swing.JInternalFrame;
  * @author Juan Diego Roman
  */
 public class VentanaCandidatoModificar extends javax.swing.JInternalFrame {
-    
-    private CandidatoControl candidatoControl;
+
+    private CandidatoControl candidatoControl = new CandidatoControl();
+
+    ;
 
     /**
      * Creates new form VentanaCandidatoModificar
      */
     public VentanaCandidatoModificar() {
         initComponents();
-        this.candidatoControl = new CandidatoControl();
         this.setClosable(true);
         this.setIconifiable(true);
         this.setResizable(true);
@@ -52,9 +53,8 @@ public class VentanaCandidatoModificar extends javax.swing.JInternalFrame {
         jTextField5 = new javax.swing.JTextField();
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
-        jTextField3 = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -84,9 +84,7 @@ public class VentanaCandidatoModificar extends javax.swing.JInternalFrame {
 
         jLabel4.setText("Lugar de nacimiento");
 
-        jLabel5.setText("Nro de Lista");
-
-        jLabel6.setText("Numero de lista para modificar");
+        jLabel5.setText("Nro de Lista para modificar");
 
         jRadioButton1.setText("Masculina");
         jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -122,9 +120,7 @@ public class VentanaCandidatoModificar extends javax.swing.JInternalFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(26, Short.MAX_VALUE))
         );
@@ -153,14 +149,12 @@ public class VentanaCandidatoModificar extends javax.swing.JInternalFrame {
                     .addComponent(jLabel5)
                     .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton1)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -203,10 +197,10 @@ public class VentanaCandidatoModificar extends javax.swing.JInternalFrame {
         }
         retorno[3] = this.jTextField4.getText();
         retorno[4] = this.jTextField5.getText();
-        
+
         this.candidatoControl.modifcar(retorno);
         this.actualizarTabla();
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
     public void actualizarTabla() {
 
@@ -214,10 +208,10 @@ public class VentanaCandidatoModificar extends javax.swing.JInternalFrame {
         for (var i = 0; i < this.candidatoControl.listar().size(); i++) {
 
             data[i][0] = this.candidatoControl.listar().get(i).getNombreCandidato();
-            data[i][1] = this.candidatoControl.listar().get(i).getEdad();
+            data[i][1] = Integer.toString(this.candidatoControl.listar().get(i).getEdad());
             data[i][2] = this.candidatoControl.listar().get(i).getGenero();
             data[i][3] = this.candidatoControl.listar().get(i).getLugarDeNacimiento();
-            data[i][4] = this.candidatoControl.listar().get(i).getNroLista();
+            data[i][4] = Integer.toString(this.candidatoControl.listar().get(i).getNroLista());
 
         }
 
@@ -231,6 +225,7 @@ public class VentanaCandidatoModificar extends javax.swing.JInternalFrame {
         jTable1.setModel(new javax.swing.table.DefaultTableModel(data, encabezado));
 
     }
+
     /**
      * @param args the command line arguments
      */
@@ -281,7 +276,6 @@ public class VentanaCandidatoModificar extends javax.swing.JInternalFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     // End of variables declaration//GEN-END:variables

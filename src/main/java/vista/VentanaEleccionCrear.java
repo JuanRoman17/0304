@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
  */
 public class VentanaEleccionCrear extends javax.swing.JInternalFrame {
     
-    private EleccionControl eleccionControl;
+    private EleccionControl eleccionControl = new EleccionControl();;
     private CandidatoControl candidatoControl = new CandidatoControl();
     private DignidadControl dignidadControl = new DignidadControl();
 
@@ -24,7 +24,6 @@ public class VentanaEleccionCrear extends javax.swing.JInternalFrame {
      */
     public VentanaEleccionCrear() {
         initComponents();
-        this.eleccionControl = new EleccionControl();
         this.actualizarCombos();
         
     }
@@ -222,10 +221,10 @@ public class VentanaEleccionCrear extends javax.swing.JInternalFrame {
         for (var i = 0; i < this.eleccionControl.listar().size(); i++) {
 
             dat[i][0] = this.eleccionControl.listar().get(i).getCanton();
-            dat[i][1] = this.eleccionControl.listar().get(i).getCandidato();
-            dat[i][2] = this.eleccionControl.listar().get(i).getNumeroVotos();
-            dat[i][3] = this.eleccionControl.listar().get(i).getDignidad();
-            dat[i][4] = this.eleccionControl.listar().get(i).getNroEleccion();
+            dat[i][1] = this.eleccionControl.listar().get(i).getCandidato().getNombreCandidato();
+            dat[i][2] = Integer.toString(this.eleccionControl.listar().get(i).getNumeroVotos());
+            dat[i][3] = this.eleccionControl.listar().get(i).getDignidad().getCodigo();
+            dat[i][4] = Integer.toString(this.eleccionControl.listar().get(i).getNroEleccion());
 
         }
 
@@ -239,7 +238,7 @@ public class VentanaEleccionCrear extends javax.swing.JInternalFrame {
         jTable1.setModel(new javax.swing.table.DefaultTableModel(dat, encabezado));
     }
 
-    private void limpiarDatosIngresados() {
+    /*private void limpiarDatosIngresados() {
         this.jTextField1.setText("");
         this.jTextField2.setText("");
         this.jTextField3.setText("");
@@ -258,7 +257,7 @@ public class VentanaEleccionCrear extends javax.swing.JInternalFrame {
         retorno[4] = this.jComboBox1.getSelectedItem().toString();
 
         return retorno;
-    }
+    }/*
     /**
      * @param args the command line arguments
      */

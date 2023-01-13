@@ -13,15 +13,17 @@ import javax.swing.JOptionPane;
  * @author Juan Diego Roman
  */
 public class VentanaCandidatoEliminar extends javax.swing.JInternalFrame {
-    
-    private CandidatoControl candidatoControl;
+
+    private CandidatoControl candidatoControl = new CandidatoControl();
+
+    ;
 
     /**
      * Creates new form VentanaCandidatoEliminar
      */
     public VentanaCandidatoEliminar() {
         initComponents();
-        this.candidatoControl = new CandidatoControl();
+
         this.setClosable(true);
         this.setIconifiable(true);
         this.setResizable(true);

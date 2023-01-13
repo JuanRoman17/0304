@@ -31,10 +31,10 @@ public class DignidadServiceImpl implements DignidadService {
     }
 
     @Override
-    public Dignidad buscarPorAlianza(String alianza) {
+    public Dignidad buscarPorCodigo(int codigo) {
         Dignidad retorno = null;
         for (var dignidad : this.dignidadList) {
-            if (alianza == dignidad.getAlianza()) {
+            if (codigo == dignidad.getCodigo()) {
                 retorno = dignidad;
                 break;
             }
@@ -43,22 +43,22 @@ public class DignidadServiceImpl implements DignidadService {
     }
 
     @Override
-    public void modificar(Dignidad dignidad, String alianza) {
+    public void modificar(Dignidad dignidad, int codigo) {
         var indice = -1;
         for (var dignidades : this.dignidadList ){
             indice++;
-            if(alianza ==dignidades.getAlianza()){
+            if(codigo ==dignidades.getCodigo()){
                 this.dignidadList.set(indice, dignidad);
             }
         }
     }
 
     @Override
-    public void eliminar(String alianza) {
+    public void eliminar(int codigo) {
         var indice = -1;
         for (var dignidades : this.dignidadList) {
             indice++;
-            if (alianza == dignidades.getAlianza()) {
+            if (codigo == dignidades.getCodigo()) {
                 this.dignidadList.remove(indice);
 
             }
@@ -66,3 +66,7 @@ public class DignidadServiceImpl implements DignidadService {
         }
     }
 }
+        
+    
+
+   

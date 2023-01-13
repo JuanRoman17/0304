@@ -4,7 +4,6 @@
  */
 package vista;
 
-import controlador.CandidatoControl;
 import controlador.DignidadControl;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
@@ -14,14 +13,14 @@ import javax.swing.JOptionPane;
  * @author Juan Diego Roman
  */
 public class VentanaDignidadCrear extends javax.swing.JInternalFrame {
-    private DignidadControl dignidadControl;
 
+    private DignidadControl dignidadControl = new DignidadControl();
+    
     /**
      * Creates new form VentanaDignidadCrear
      */
     public VentanaDignidadCrear() {
         initComponents();
-        this.dignidadControl = new DignidadControl();
         this.setClosable(true);
         this.setIconifiable(true);
         this.setResizable(true);
@@ -50,7 +49,7 @@ public class VentanaDignidadCrear extends javax.swing.JInternalFrame {
         jTextField3 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("Publicidad");
 
@@ -58,7 +57,7 @@ public class VentanaDignidadCrear extends javax.swing.JInternalFrame {
 
         jLabel3.setText("Propuestas");
 
-        jLabel4.setText("Alianza");
+        jLabel4.setText("Codigo");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -80,14 +79,6 @@ public class VentanaDignidadCrear extends javax.swing.JInternalFrame {
             }
         });
 
-        jTextField1.setText(" ");
-
-        jTextField2.setText("  ");
-
-        jTextField3.setText(" ");
-
-        jTextField4.setText(" ");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -96,24 +87,23 @@ public class VentanaDignidadCrear extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 376, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(26, 26, 26)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton1)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
                                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jButton1))
-                        .addGap(0, 214, Short.MAX_VALUE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+                                    .addComponent(jTextField2)
+                                    .addComponent(jTextField3)
+                                    .addComponent(jTextField4))))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -145,13 +135,17 @@ public class VentanaDignidadCrear extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 16, Short.MAX_VALUE))
+                .addContainerGap(10, Short.MAX_VALUE))
         );
 
         pack();
@@ -160,28 +154,28 @@ public class VentanaDignidadCrear extends javax.swing.JInternalFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         if (JOptionPane.showConfirmDialog(this, "Crear dignidad", "Seleccione una opción", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE) == 0) {
-        String[] dat = new String[4];
+            
+            String[] dat = new String[4];
+            dat[0] = this.jTextField1.getText();
+            dat[1] = this.jTextField2.getText();
+            dat[2] = this.jTextField3.getText();
+            dat[3] = this.jTextField4.getText();
 
-        dat[0] = this.jTextField1.getText();
-        dat[1] = this.jTextField2.getText();
-        dat[2] = this.jTextField3.getText();
-        dat[3] = this.jTextField4.getText();
+            this.dignidadControl.crear(dat);
+            this.actualizarTabla();
 
-        this.dignidadControl.crear(dat);
-        this.actualizarTabla();
-        
-        JOptionPane.showMessageDialog(rootPane, "Dignidad se creo");
+            JOptionPane.showMessageDialog(rootPane, "Dignidad se creo");
         }
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
-     public void actualizarTabla() {
+    public void actualizarTabla() {
         var dat = new Object[this.dignidadControl.listar().size()][4];
         for (var i = 0; i < this.dignidadControl.listar().size(); i++) {
 
             dat[i][0] = this.dignidadControl.listar().get(i).getPublicidad();
             dat[i][1] = this.dignidadControl.listar().get(i).getCampaña();
             dat[i][2] = this.dignidadControl.listar().get(i).getPropuestas();
-            dat[i][3] = this.dignidadControl.listar().get(i).getAlianza();
+            dat[i][3] = Integer.toString(this.dignidadControl.listar().get(i).getCodigo());
 
         }
 
@@ -189,12 +183,12 @@ public class VentanaDignidadCrear extends javax.swing.JInternalFrame {
         encabezado[0] = "Publicidad";
         encabezado[1] = "Campañà";
         encabezado[2] = "Propuestas";
-        encabezado[3] = "Alianza";
+        encabezado[3] = "Codigo";
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(dat, encabezado));
     }
 
-    private void limpiarDatosIngresados() {
+    /*private void limpiarDatosIngresados() {
         this.jTextField1.setText("");
         this.jTextField2.setText("");
         this.jTextField3.setText("");
@@ -210,7 +204,8 @@ public class VentanaDignidadCrear extends javax.swing.JInternalFrame {
         retorno[3] = this.jTextField4.getText();
 
         return retorno;
-    }
+    }/*
+
     /**
      * @param args the command line arguments
      */

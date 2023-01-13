@@ -28,7 +28,7 @@ public class EleccionControl {
         var canton = dato[0];
         var candidato = this.candidatoServiceImpl.buscarPorLista(Integer.valueOf(dato[1]).intValue());
         var numeroVotos = Integer.valueOf(dato[2]).intValue();
-        var dignidad = this.dignidadServiceImpl.buscarPorAlianza(dato[3]);
+        var dignidad = this.dignidadServiceImpl.buscarPorCodigo(Integer.valueOf(dato[3]).intValue());
         var nroEleccion = Integer.valueOf(dato[4]).intValue();
         var eleccion = new Eleccion(canton, candidato, numeroVotos, dignidad, nroEleccion);
         this.eleccionServiceImpl.crear(eleccion);
@@ -40,7 +40,7 @@ public class EleccionControl {
         var canton = dato[0];
         var candidato = this.candidatoServiceImpl.buscarPorLista(Integer.valueOf(dato[1]).intValue());
         var numeroVotos = Integer.valueOf(dato[2]).intValue();
-        var dignidad = this.dignidadServiceImpl.buscarPorAlianza(dato[3]);
+        var dignidad = this.dignidadServiceImpl.buscarPorCodigo(Integer.valueOf(dato[3]).intValue());
         var nroEleccion = Integer.valueOf(dato[4]).intValue();
         var eleccion = new Eleccion(canton, candidato, numeroVotos, dignidad, nroEleccion);
 

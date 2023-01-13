@@ -14,17 +14,16 @@ public class Candidato {
     private int edad;
     private String genero;
     private String lugarDeNacimiento;
-    
     private int nroLista;
 
-    public Candidato(String nombreCandidato, int edad, String genero, 
+    public Candidato(String nombreCandidato, int edad, String genero,
             String lugarDeNacimiento, int nroLista) {
-        
+
         this.nombreCandidato = nombreCandidato;
         this.edad = edad;
         this.genero = genero;
         this.lugarDeNacimiento = lugarDeNacimiento;
-        
+
         this.nroLista = nroLista;
     }
 
@@ -60,8 +59,6 @@ public class Candidato {
         this.lugarDeNacimiento = lugarDeNacimiento;
     }
 
-    
-
     public int getNroLista() {
         return nroLista;
     }
@@ -72,11 +69,9 @@ public class Candidato {
 
     @Override
     public String toString() {
-        return "Candidato{" + "nombreCandidato=" + nombreCandidato + ", edad=" 
-                + edad + ", genero=" + genero + ", lugarDeNacimiento=" + 
-                lugarDeNacimiento + ", nroLista=" + nroLista + '}';
+        return "Candidato{" + "nombreCandidato=" + nombreCandidato + ", edad="
+                + edad + ", genero=" + genero + ", lugarDeNacimiento="
+                + lugarDeNacimiento + ", nroLista=" + nroLista + '}';
     }
-
-    
 
 }
