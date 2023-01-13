@@ -12,22 +12,21 @@ import javax.swing.JInternalFrame;
  * @author Juan Diego Roman
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
-    
+
     private VentanaCandidatoCrear ventanaCandidatoCrear;
     private VentanaCandidatoModificar ventanaCandidatoModificar;
     private VentanaCandidatoEliminar ventanaCandidatoEliminar;
     private VentanaCandidatoListar ventanaCandidatoListar;
-    
+
     private VentanaDignidadCrear ventanaDignidadCrear;
     private VentanaDignidadModificar ventanaDignidadModificar;
     private VentanaDignidadEliminar ventanaDignidadEliminar;
     private VentanaDignidadListar ventanaDignidadListar;
-    
+
     private VentanaEleccionCrear ventanaEleccionCrear;
     private VentanaEleccionModificar ventanaEleccionModificar;
     private VentanaEleccionEliminar ventanEleccionEliminar;
     private VentanaEleccionListar ventanaEleccionListar;
-    
 
     /**
      * Creates new form VentanaPrincipal
@@ -230,138 +229,180 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
         // TODO add your handling code here:
         this.ventanaDignidadListar = new VentanaDignidadListar();
+
         ventanaDignidadListar.setClosable(true);
         ventanaDignidadListar.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         ventanaDignidadListar.setVisible(true);
+        ventanaDignidadListar.setIconifiable(true);
+
         this.jDesktopPane1.add(ventanaDignidadListar);
     }//GEN-LAST:event_jMenuItem8ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
         this.ventanaEleccionCrear = new VentanaEleccionCrear();
+
         ventanaEleccionCrear.setClosable(true);
         ventanaEleccionCrear.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         ventanaEleccionCrear.setVisible(true);
+        ventanaEleccionCrear.setIconifiable(true);
+
         this.jDesktopPane1.add(ventanaEleccionCrear);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         // TODO add your handling code here:
         this.ventanaEleccionListar = new VentanaEleccionListar();
+
         ventanaEleccionListar.setClosable(true);
         ventanaEleccionListar.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         ventanaEleccionListar.setVisible(true);
+        ventanaEleccionListar.setIconifiable(true);
+
         this.jDesktopPane1.add(ventanaEleccionListar);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
         // TODO add your handling code here:
         this.ventanaEleccionCrear = new VentanaEleccionCrear();
+
         ventanaEleccionCrear.setClosable(true);
         ventanaEleccionCrear.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         ventanaEleccionCrear.setVisible(true);
+        ventanaEleccionCrear.setIconifiable(true);
+
         this.jDesktopPane1.add(ventanaEleccionCrear);
-        
+
     }//GEN-LAST:event_jMenu1ActionPerformed
 
     private void jMenu3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu3ActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_jMenu3ActionPerformed
 
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
         // TODO add your handling code here:
         this.ventanaCandidatoCrear = new VentanaCandidatoCrear();
+
         ventanaCandidatoCrear.setClosable(true);
         ventanaCandidatoCrear.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         ventanaCandidatoCrear.setVisible(true);
+        ventanaCandidatoCrear.setIconifiable(true);
+
         this.jDesktopPane1.add(ventanaCandidatoCrear);
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
     private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
         // TODO add your handling code here:
         this.ventanaCandidatoEliminar = new VentanaCandidatoEliminar();
+
         ventanaCandidatoEliminar.setClosable(true);
         ventanaCandidatoEliminar.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         ventanaCandidatoEliminar.setVisible(true);
+        ventanaCandidatoEliminar.setIconifiable(true);
+
         this.jDesktopPane1.add(ventanaCandidatoEliminar);
     }//GEN-LAST:event_jMenuItem11ActionPerformed
 
     private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
         // TODO add your handling code here:
         this.ventanaCandidatoModificar = new VentanaCandidatoModificar();
+
         ventanaCandidatoModificar.setClosable(true);
         ventanaCandidatoModificar.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         ventanaCandidatoModificar.setVisible(true);
+        ventanaCandidatoModificar.setIconifiable(true);
+
         this.jDesktopPane1.add(ventanaCandidatoModificar);
     }//GEN-LAST:event_jMenuItem10ActionPerformed
 
     private void jMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu2ActionPerformed
         // TODO add your handling code here:
         this.ventanaDignidadCrear = new VentanaDignidadCrear();
+
         ventanaDignidadCrear.setClosable(true);
         ventanaDignidadCrear.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         ventanaDignidadCrear.setVisible(true);
-//        this.jDesktopPane1.add(ventanaDignidadCrear);
+        ventanaDignidadCrear.setIconifiable(true);
+
+        this.jDesktopPane1.add(ventanaDignidadCrear);
     }//GEN-LAST:event_jMenu2ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
         // TODO add your handling code here:
         this.ventanaDignidadModificar = new VentanaDignidadModificar();
+
         ventanaDignidadModificar.setClosable(true);
         ventanaDignidadModificar.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         ventanaDignidadModificar.setVisible(true);
+        ventanaDignidadModificar.setIconifiable(true);
+
         this.jDesktopPane1.add(ventanaDignidadModificar);
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
         // TODO add your handling code here:
         this.ventanaDignidadEliminar = new VentanaDignidadEliminar();
+
         ventanaDignidadEliminar.setClosable(true);
         ventanaDignidadEliminar.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         ventanaDignidadEliminar.setVisible(true);
+        ventanaDignidadEliminar.setIconifiable(true);
+
         this.jDesktopPane1.add(ventanaDignidadEliminar);
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
- 
+
         // TODO add your handling code here:
         this.ventanaCandidatoListar = new VentanaCandidatoListar();
+
         ventanaCandidatoListar.setClosable(true);
         ventanaCandidatoListar.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         ventanaCandidatoListar.setVisible(true);
+        ventanaCandidatoListar.setIconifiable(true);
+
         this.jDesktopPane1.add(ventanaCandidatoListar);
-        
-        
+
+
     }//GEN-LAST:event_jMenuItem12ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         // TODO add your handling code here:
         this.ventanaDignidadCrear = new VentanaDignidadCrear();
+
         ventanaDignidadCrear.setClosable(true);
         ventanaDignidadCrear.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         ventanaDignidadCrear.setVisible(true);
+        ventanaDignidadCrear.setIconifiable(true);
+
         this.jDesktopPane1.add(ventanaDignidadCrear);
-        
+
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
         this.ventanaEleccionModificar = new VentanaEleccionModificar();
+
         ventanaEleccionModificar.setClosable(true);
         ventanaEleccionModificar.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         ventanaEleccionModificar.setVisible(true);
+        ventanaEleccionModificar.setIconifiable(true);
+
         this.jDesktopPane1.add(ventanaEleccionModificar);
-        
-        
+
+
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         // TODO add your handling code here:
         this.ventanEleccionEliminar = new VentanaEleccionEliminar();
+
         ventanEleccionEliminar.setClosable(true);
         ventanEleccionEliminar.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         ventanEleccionEliminar.setVisible(true);
+        ventanEleccionEliminar.setIconifiable(true);
+
         this.jDesktopPane1.add(ventanEleccionEliminar);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
