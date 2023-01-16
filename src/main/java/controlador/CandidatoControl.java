@@ -23,7 +23,6 @@ public class CandidatoControl {
         }
         return instance;
     }*/
-
     public CandidatoControl() {
 
     }
@@ -31,6 +30,7 @@ public class CandidatoControl {
     public void crear(String[] data) throws Exception {
 
         try {
+            var retorno = "No se puede crear";
             var nombreCandidato = data[0];
             var edad = Integer.valueOf(data[1]).intValue();
             var genero = data[2];
@@ -40,10 +40,11 @@ public class CandidatoControl {
 
             this.candidatoServiceImpl.crear(candidato);
         } catch (NumberFormatException e1) {
-            throw new RuntimeException("Error en los parametros");
+            throw new RuntimeException("Error al ingresar los datos");
         } catch (RuntimeException e1) {
             throw new RuntimeException("Nro lista existe");
         }
+
     }
 
     public boolean NroLista(int NroLista) {
@@ -73,6 +74,7 @@ public class CandidatoControl {
             this.candidatoServiceImpl.modificar(candidato, nrolista);
             retorno = "Candidato " + candidato.getNombreCandidato() + " Modificado";
             return retorno;
+            
 
         } catch (NumberFormatException e1) {
             throw new RuntimeException("Error en los parametros");
@@ -106,4 +108,52 @@ public class CandidatoControl {
 
     }
 
+    /* public boolean NrolistaExiste(int Nrolista) {
+        var retorno = false;
+        for (var candidato : this.candidatoServiceImpl.listar()) {
+            if (candidato.getNroLista() == Nrolista) {
+                retorno = true;
+
+            }
+
+        }
+        return retorno;
+    }*/
+    public boolean validarNroLista(int nrolista) {
+        String numCadena = String.valueOf(nrolista);
+        String cadena = numCadena;
+
+        char[] cadenaDiv = cadena.toCharArray();
+        String n = "";
+
+        for (int i = 0; i < cadenaDiv.length; i++) {
+            if (Character.isDigit(cadenaDiv[i])) {
+                n += cadenaDiv[i];
+            } else {
+                return false;
+            }
+        }
+        if (nrolista > 0) {
+
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean validarTexto(String texto) {
+        var retorno = true;
+        String cadena = texto;
+        char[] cadena_div = cadena.toCharArray();
+        String n = "";
+        for (int i = 0; i < cadena_div.length; i++) {
+            if (Character.isDigit(cadena_div[i])) {
+                n += cadena_div[i];
+                retorno = false;
+
+            }
+        }
+
+        return retorno;
+    }
 }

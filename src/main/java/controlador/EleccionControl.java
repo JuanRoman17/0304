@@ -35,7 +35,7 @@ public class EleccionControl {
             var eleccion = new Eleccion(canton, candidato, numeroVotos, dignidad, nroEleccion);
             this.eleccionServiceImpl.crear(eleccion);
         } catch (NumberFormatException e1) {
-            throw new RuntimeException("Error en los parametros");
+            throw new RuntimeException("Error al ingresar canton");
         } catch (RuntimeException e1) {
             throw new RuntimeException("Nro lista existe");
         }
