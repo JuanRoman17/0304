@@ -26,6 +26,29 @@ public class VentanaCandidatoCrear extends javax.swing.JInternalFrame {
         this.setResizable(true);
         this.setDefaultCloseOperation(JInternalFrame.DISPOSE_ON_CLOSE);
     }
+    public void ActualizarTabla() {
+
+        var data = new Object[this.candidatoControl.listar().size()][5];
+        for (var i = 0; i < this.candidatoControl.listar().size(); i++) {
+
+            data[i][0] = this.candidatoControl.listar().get(i).getNombreCandidato();
+            data[i][1] = Integer.toString(this.candidatoControl.listar().get(i).getEdad());
+            data[i][2] = this.candidatoControl.listar().get(i).getGenero();
+            data[i][3] = this.candidatoControl.listar().get(i).getLugarDeNacimiento();
+            data[i][4] = Integer.toString(this.candidatoControl.listar().get(i).getNroLista());
+
+        }
+
+        var encabezado = new String[5];
+        encabezado[0] = "Nombre";
+        encabezado[1] = "Edad";
+        encabezado[2] = "Genero";
+        encabezado[3] = "LugarNacimiento";
+        encabezado[4] = "NroLista";
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(data, encabezado));
+
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -200,6 +223,7 @@ public class VentanaCandidatoCrear extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        
         if (JOptionPane.showConfirmDialog(this, "¿Crear el candato?", "Seleccione una opción", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE) == 0) {
 
             String[] data = new String[5];
@@ -218,48 +242,19 @@ public class VentanaCandidatoCrear extends javax.swing.JInternalFrame {
             }
             data[3] = this.jTextField3.getText();
             data[4] = this.jTextField4.getText();
-
+            
+            try {
             this.candidatoControl.crear(data);
+            JOptionPane.showMessageDialog(rootPane, "El Candidato se ha creado con exito");
             this.ActualizarTabla();
+            } catch (Exception e1) {
 
-            JOptionPane.showMessageDialog(rootPane, "El cadidato se creo");
-
+            JOptionPane.showMessageDialog(rootPane, "Error al crear");
+            
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed
-    public void ActualizarTabla() {
-
-        var data = new Object[this.candidatoControl.listar().size()][5];
-        for (var i = 0; i < this.candidatoControl.listar().size(); i++) {
-
-            data[i][0] = this.candidatoControl.listar().get(i).getNombreCandidato();
-            data[i][1] = Integer.toString(this.candidatoControl.listar().get(i).getEdad());
-            data[i][2] = this.candidatoControl.listar().get(i).getGenero();
-            data[i][3] = this.candidatoControl.listar().get(i).getLugarDeNacimiento();
-            data[i][4] = Integer.toString(this.candidatoControl.listar().get(i).getNroLista());
-
-        }
-
-        var encabezado = new String[5];
-        encabezado[0] = "Nombre";
-        encabezado[1] = "Edad";
-        encabezado[2] = "Genero";
-        encabezado[3] = "LugarNacimiento";
-        encabezado[4] = "NroLista";
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(data, encabezado));
-
-    }
-    public String[] recuperarDatosIngresados() {
-        String[] retorno = new String[5];
-        retorno[0] = this.jTextField1.getText();
-        retorno[1] = this.jTextField2.getText();
-        retorno[2]=this.jRadioButton1.getText();
-        retorno[2]=this.jRadioButton1.getText();
-        retorno[3] = this.jTextField4.getText();
-        
-       
-        return retorno;
+    
     }
 
     /**

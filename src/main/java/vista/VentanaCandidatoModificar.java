@@ -6,6 +6,7 @@ package vista;
 
 import controlador.CandidatoControl;
 import javax.swing.JInternalFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -197,9 +198,13 @@ public class VentanaCandidatoModificar extends javax.swing.JInternalFrame {
         }
         retorno[3] = this.jTextField4.getText();
         retorno[4] = this.jTextField5.getText();
+        try {
+            this.candidatoControl.modifcar(retorno);
+            this.actualizarTabla();
+        } catch (Exception e1) {
+            JOptionPane.showMessageDialog(this, e1.getMessage(), "Error en la Modificacion", JOptionPane.ERROR_MESSAGE);
+        }
 
-        this.candidatoControl.modifcar(retorno);
-        this.actualizarTabla();
 
     }//GEN-LAST:event_jButton1ActionPerformed
     public void actualizarTabla() {

@@ -14,11 +14,7 @@ import modelo.Dignidad;
  */
 public class DignidadServiceImpl implements DignidadService {
     
-    private static List<Dignidad> dignidadList;
-
-    public DignidadServiceImpl() {
-        dignidadList = new ArrayList<>();
-    }
+    private static List<Dignidad> dignidadList = new ArrayList<>();
 
     @Override
     public void crear(Dignidad dignidad) {

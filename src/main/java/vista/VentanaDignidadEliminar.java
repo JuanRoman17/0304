@@ -6,6 +6,7 @@ package vista;
 
 import controlador.DignidadControl;
 import javax.swing.JInternalFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -81,7 +82,11 @@ public class VentanaDignidadEliminar extends javax.swing.JInternalFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         var data = this.jTextField1.getText();
+        try{
         this.dignidadControl.eliminar(data);
+        }catch(Exception e1){
+             JOptionPane.showMessageDialog(this, e1.getMessage(), "Error en la Eliminacion", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

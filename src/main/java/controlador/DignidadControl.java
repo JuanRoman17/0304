@@ -14,36 +14,47 @@ import servicio.DignidadServiceImpl;
  */
 public class DignidadControl {
 
-    private DignidadServiceImpl dignidadServiceImpl;
+    private DignidadServiceImpl dignidadServiceImpl = new DignidadServiceImpl();
 
     public DignidadControl() {
-        dignidadServiceImpl = new DignidadServiceImpl();
+
     }
 
     public void crear(String[] dat) {
 
-        var publicidad = dat[0];
-        var campaña = dat[1];
-        var propuestas = dat[2];
-        var codigo = Integer.valueOf(dat[3]).intValue();
-        var dignidad = new Dignidad(publicidad, campaña, propuestas, codigo);
+        try {
+            var publicidad = dat[0];
+            var campaña = dat[1];
+            var propuestas = dat[2];
+            var codigo = Integer.valueOf(dat[3]).intValue();
+            var dignidad = new Dignidad(publicidad, campaña, propuestas, codigo);
 
-        this.dignidadServiceImpl.crear(dignidad);
+            this.dignidadServiceImpl.crear(dignidad);
+        } catch (NumberFormatException e1) {
+            throw new RuntimeException("Error en los parametros");
+        } catch (RuntimeException e1) {
+            throw new RuntimeException("Nro lista existe");
+        }
     }
 
     public String modificar(String[] dat) {
-        var retorno = "No se pudo crear";
 
-        var publicidad = dat[0];
-        var campaña = dat[1];
-        var propuestas = dat[2];
-        var codigo = Integer.valueOf(dat[3]).intValue();
+        try {
+            var retorno = "No se pudo crear";
+            var publicidad = dat[0];
+            var campaña = dat[1];
+            var propuestas = dat[2];
+            var codigo = Integer.valueOf(dat[3]).intValue();
+            var dignidad = new Dignidad(publicidad, campaña, propuestas, codigo);
 
-        var dignidad = new Dignidad(publicidad, campaña, propuestas, codigo);
-
-        this.dignidadServiceImpl.modificar(dignidad, codigo);
-        retorno = "Dignidad" + dignidad.getCodigo() + "Modificado";
-        return retorno;
+            this.dignidadServiceImpl.modificar(dignidad, codigo);
+            retorno = "Dignidad" + dignidad.getCodigo() + "Modificado";
+            return retorno;
+        } catch (NumberFormatException e1) {
+            throw new RuntimeException("Error en los parametros");
+        } catch (RuntimeException e1) {
+            throw new RuntimeException("Nro lista existe");
+        }
     }
 
     public List<Dignidad> listar() {
@@ -53,7 +64,13 @@ public class DignidadControl {
 
     public void eliminar(String codigos) {
 
-        var codigo = Integer.valueOf(codigos).intValue();
-        this.dignidadServiceImpl.eliminar(codigo);
+        try {
+            var codigo = Integer.valueOf(codigos).intValue();
+            this.dignidadServiceImpl.eliminar(codigo);
+        } catch (NumberFormatException e1) {
+            throw new RuntimeException("Error en los parametros");
+        } catch (RuntimeException e1) {
+            throw new RuntimeException("Nro lista existe");
+        }
     }
 }

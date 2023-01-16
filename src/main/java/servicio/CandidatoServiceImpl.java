@@ -14,10 +14,11 @@ import modelo.Candidato;
  */
 public class CandidatoServiceImpl implements CandidatoService {
 
-    private static List<Candidato> candidatoList;
+    private static List<Candidato> candidatoList= new ArrayList<>();
 
-    public CandidatoServiceImpl() {
-        this.candidatoList = new ArrayList<>();
+    public CandidatoServiceImpl() {       
+        System.out.println("this.candidatoList");
+        System.out.println(this.candidatoList);
     }
 
     @Override

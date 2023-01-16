@@ -14,8 +14,8 @@ import javax.swing.JOptionPane;
  * @author Juan Diego Roman
  */
 public class VentanaEleccionCrear extends javax.swing.JInternalFrame {
-    
-    private EleccionControl eleccionControl = new EleccionControl();;
+
+    private EleccionControl eleccionControl = new EleccionControl();
     private CandidatoControl candidatoControl = new CandidatoControl();
     private DignidadControl dignidadControl = new DignidadControl();
 
@@ -26,23 +26,29 @@ public class VentanaEleccionCrear extends javax.swing.JInternalFrame {
         initComponents();
         this.actualizarCombos1();
         this.actualizarCombos2();
-        
+
     }
-    private void actualizarCombos1(){
-        var data = new String [this.candidatoControl.listar().size()];
-        for(var i=0;i<this.candidatoControl.listar().size();i++){
-            data[i]=this.candidatoControl.listar().get(i).toString();
+
+    private void actualizarCombos1() {
+        //this.candidatoControl = this.candidatoControl.getInstance();
+        var data = new String[this.candidatoControl.listar().size()];
+        //System.out.println("Listar");
+        //System.out.println(this.candidatoControl.listar());
+        for (var i = 0; i < this.candidatoControl.listar().size(); i++) {
+            data[i] = this.candidatoControl.listar().get(i).getNombreCandidato();
         }
+
         this.jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(data));
-        
+
     }
-    private void actualizarCombos2(){
-        var data = new String [this.dignidadControl.listar().size()];
-        for(var i=0;i<this.dignidadControl.listar().size();i++){
-            data[i]=this.dignidadControl.listar().get(i).toString();
+
+    private void actualizarCombos2() {
+        var data = new String[this.dignidadControl.listar().size()];
+        for (var i = 0; i < this.dignidadControl.listar().size(); i++) {
+            data[i] = this.dignidadControl.listar().get(i).getCampaña();
         }
         this.jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(data));
-        
+
     }
 
     /**
@@ -111,12 +117,6 @@ public class VentanaEleccionCrear extends javax.swing.JInternalFrame {
             }
         });
 
-        jTextField3.setText(" ");
-
-        jTextField2.setText(" ");
-
-        jTextField1.setText(" ");
-
         jButton2.setText("Mostrar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -134,11 +134,6 @@ public class VentanaEleccionCrear extends javax.swing.JInternalFrame {
                         .addGap(34, 34, 34)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -157,12 +152,18 @@ public class VentanaEleccionCrear extends javax.swing.JInternalFrame {
                                         .addComponent(jButton1)
                                         .addGap(32, 32, 32)))
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton2)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(181, 181, 181))
+                                    .addComponent(jTextField1)
+                                    .addComponent(jTextField2)
+                                    .addComponent(jComboBox1, 0, 80, Short.MAX_VALUE)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jButton2)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jTextField3)))
+                        .addGap(173, 173, 173))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -213,9 +214,10 @@ public class VentanaEleccionCrear extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-
         // TODO add your handling code here:
         //this.candidatoControl.buscarPorNombre(nombreCandidato);
+
+
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -223,19 +225,19 @@ public class VentanaEleccionCrear extends javax.swing.JInternalFrame {
         if (JOptionPane.showConfirmDialog(this, "Crear eleccion", "Seleccione una opción", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE) == 0) {
             String[] data = new String[5];
 
-        data[0] = this.jTextField1.getText();
-        data[1] = this.jTextField2.getText();
-        data[2] = this.jTextField3.getText();
-        data[3] = this.jComboBox1.getSelectedItem().toString();
-        data[4] = this.jComboBox2.getSelectedItem().toString();
-        
-
-        this.eleccionControl.crear(data);
-        this.actualizarTabla();
-        
-        JOptionPane.showMessageDialog(rootPane, "Eleccion se creo");
+            data[0] = this.jTextField1.getText();
+            data[1] = this.jTextField2.getText();
+            data[2] = this.jTextField3.getText();
+            data[3] = this.jComboBox1.getSelectedItem().toString();//
+            data[4] = this.jComboBox2.getSelectedItem().toString();//
+            try {
+                this.eleccionControl.crear(data);
+                this.actualizarTabla();
+                JOptionPane.showMessageDialog(rootPane, "Eleccion se creo");
+            } catch (Exception e1) {
+                JOptionPane.showMessageDialog(this, e1.getMessage(), "Error al crear", JOptionPane.ERROR_MESSAGE);
+            }
         }
-        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -243,7 +245,7 @@ public class VentanaEleccionCrear extends javax.swing.JInternalFrame {
         this.actualizarTabla();
         this.actualizarCombos1();
         this.actualizarCombos2();
-        
+
     }//GEN-LAST:event_jButton2ActionPerformed
     public void actualizarTabla() {
         var dat = new Object[this.eleccionControl.listar().size()][5];

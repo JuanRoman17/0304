@@ -7,6 +7,7 @@ package vista;
 import controlador.CandidatoControl;
 import controlador.DignidadControl;
 import controlador.EleccionControl;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -101,7 +102,11 @@ public class VentanaEleccionEliminar extends javax.swing.JInternalFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         var data = this.jTextField1.getText();
+        try{
         this.eleccionControl.eliminar(data);
+        }catch(Exception e1){
+            JOptionPane.showMessageDialog(this, e1.getMessage(), "Error en la Eliminacion", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

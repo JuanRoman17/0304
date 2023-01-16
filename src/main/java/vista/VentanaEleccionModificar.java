@@ -7,12 +7,14 @@ package vista;
 import controlador.CandidatoControl;
 import controlador.DignidadControl;
 import controlador.EleccionControl;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Juan Diego Roman
  */
 public class VentanaEleccionModificar extends javax.swing.JInternalFrame {
+
     private EleccionControl eleccionControl;
     private CandidatoControl candidatoControl = new CandidatoControl();
     private DignidadControl dignidadControl = new DignidadControl();
@@ -25,10 +27,11 @@ public class VentanaEleccionModificar extends javax.swing.JInternalFrame {
         this.eleccionControl = new EleccionControl();
         this.actualizarCombos();
     }
-    private void actualizarCombos(){
-        var data = new String [this.eleccionControl.listar().size()];
-        for(var i=0;i<this.eleccionControl.listar().size();i++){
-            data[i]=this.eleccionControl.listar().get(i).toString();
+
+    private void actualizarCombos() {
+        var data = new String[this.eleccionControl.listar().size()];
+        for (var i = 0; i < this.eleccionControl.listar().size(); i++) {
+            data[i] = this.eleccionControl.listar().get(i).toString();
         }
         this.jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(data));
         this.jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(data));
@@ -208,10 +211,12 @@ public class VentanaEleccionModificar extends javax.swing.JInternalFrame {
         data[2] = this.jTextField3.getText();
         data[3] = this.jComboBox1.getSelectedItem().toString();
         data[4] = this.jComboBox2.getSelectedItem().toString();
-
-     
-        this.eleccionControl.modificar(data);
-        this.actualizarTabla();
+        try {
+            this.eleccionControl.modificar(data);
+            this.actualizarTabla();
+        } catch (Exception e1) {
+            JOptionPane.showMessageDialog(this, e1.getMessage(), "Error en la Modificacion", JOptionPane.ERROR_MESSAGE);
+        }
 
     }//GEN-LAST:event_jButton1ActionPerformed
     public void actualizarTabla() {
@@ -242,7 +247,6 @@ public class VentanaEleccionModificar extends javax.swing.JInternalFrame {
         this.jTextField3.setText("");
         this.jComboBox1.setSelectedItem(ABORT);
         this.jComboBox2.setSelectedItem(ABORT);
-        
 
     }
 
@@ -256,6 +260,7 @@ public class VentanaEleccionModificar extends javax.swing.JInternalFrame {
 
         return retorno;
     }
+
     /**
      * @param args the command line arguments
      */

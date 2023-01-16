@@ -14,7 +14,7 @@ import modelo.Eleccion;
  */
 public class EleccionServiceImpl implements EleccionService {
 
-    private List<Eleccion> eleccionList;
+    private static List<Eleccion> eleccionList;
 
     public EleccionServiceImpl() {
         eleccionList = new ArrayList<>();

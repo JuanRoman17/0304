@@ -14,38 +14,71 @@ import servicio.CandidatoServiceImpl;
  */
 public class CandidatoControl {
 
-    private CandidatoServiceImpl candidatoServiceImpl;
+    private CandidatoServiceImpl candidatoServiceImpl = new CandidatoServiceImpl();
+    //private static CandidatoControl instance;
+
+    /*public static CandidatoControl getInstance() {
+        if (instance == null) {
+            instance = new CandidatoControl();
+        }
+        return instance;
+    }*/
 
     public CandidatoControl() {
-        candidatoServiceImpl = new CandidatoServiceImpl();
+
     }
 
-    public void crear(String[] data) {
+    public void crear(String[] data) throws Exception {
 
-        var nombreCandidato = data[0];
-        var edad = Integer.valueOf(data[1]).intValue();
-        var genero = data[2];
-        var lugarDeNacimiento = data[3];
-        var nrolista = Integer.valueOf(data[4]).intValue();
-        var candidato = new Candidato(nombreCandidato, edad, genero, lugarDeNacimiento, nrolista);
-        
-        this.candidatoServiceImpl.crear(candidato);
+        try {
+            var nombreCandidato = data[0];
+            var edad = Integer.valueOf(data[1]).intValue();
+            var genero = data[2];
+            var lugarDeNacimiento = data[3];
+            var nrolista = Integer.valueOf(data[4]).intValue();
+            var candidato = new Candidato(nombreCandidato, edad, genero, lugarDeNacimiento, nrolista);
+
+            this.candidatoServiceImpl.crear(candidato);
+        } catch (NumberFormatException e1) {
+            throw new RuntimeException("Error en los parametros");
+        } catch (RuntimeException e1) {
+            throw new RuntimeException("Nro lista existe");
+        }
+    }
+
+    public boolean NroLista(int NroLista) {
+        var retorno = false;
+        for (var candidato : this.candidatoServiceImpl.listar()) {
+            if (candidato.getNroLista() == NroLista) {
+                retorno = true;
+
+            }
+        }
+
+        return retorno;
     }
 
     public String modifcar(String[] data) {
-        var retorno = "No se pudo crear el candidato";
 
-        var nombreCandidato = data[0];
-        var edad = Integer.valueOf(data[1]).intValue();
-        var genero = data[2];
-        var lugarDeNacimiento = data[3];
-        var nrolista = Integer.valueOf(data[4]).intValue();
-        var candidato = new Candidato(nombreCandidato, edad, genero, lugarDeNacimiento, nrolista);
+        try {
 
-        this.candidatoServiceImpl.modificar(candidato, nrolista);
-        retorno = "Candidato " + candidato.getNombreCandidato() + " Modificado";
+            var retorno = "No se pudo crear el candidato";
+            var nombreCandidato = data[0];
+            var edad = Integer.valueOf(data[1]).intValue();
+            var genero = data[2];
+            var lugarDeNacimiento = data[3];
+            var nrolista = Integer.valueOf(data[4]).intValue();
+            var candidato = new Candidato(nombreCandidato, edad, genero, lugarDeNacimiento, nrolista);
 
-        return retorno;
+            this.candidatoServiceImpl.modificar(candidato, nrolista);
+            retorno = "Candidato " + candidato.getNombreCandidato() + " Modificado";
+            return retorno;
+
+        } catch (NumberFormatException e1) {
+            throw new RuntimeException("Error en los parametros");
+        } catch (RuntimeException e1) {
+            throw new RuntimeException("Nro lista existe");
+        }
 
     }
 
@@ -56,16 +89,21 @@ public class CandidatoControl {
 
     public void eliminar(String listas) {
 
-        var lista = Integer.valueOf(listas).intValue();
-        this.candidatoServiceImpl.eliminar(lista);
+        try {
+
+            var lista = Integer.valueOf(listas).intValue();
+            this.candidatoServiceImpl.eliminar(lista);
+
+        } catch (NumberFormatException e1) {
+            throw new RuntimeException("Error en los parametros");
+        } catch (RuntimeException e1) {
+            throw new RuntimeException("Nro lista existe");
+        }
     }
-    public Candidato buscarPorNombre(String nombreCandidato){
+
+    public Candidato buscarPorNombre(String nombreCandidato) {
         return this.candidatoServiceImpl.buscarPorNombre(nombreCandidato);
-        
+
     }
-
-    
-
-    
 
 }

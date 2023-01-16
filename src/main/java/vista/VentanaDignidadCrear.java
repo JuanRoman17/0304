@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 public class VentanaDignidadCrear extends javax.swing.JInternalFrame {
 
     private DignidadControl dignidadControl = new DignidadControl();
-    
+
     /**
      * Creates new form VentanaDignidadCrear
      */
@@ -154,17 +154,20 @@ public class VentanaDignidadCrear extends javax.swing.JInternalFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         if (JOptionPane.showConfirmDialog(this, "Crear dignidad", "Seleccione una opción", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE) == 0) {
-            
+
             String[] dat = new String[4];
             dat[0] = this.jTextField1.getText();
             dat[1] = this.jTextField2.getText();
             dat[2] = this.jTextField3.getText();
             dat[3] = this.jTextField4.getText();
+            try {
+                this.dignidadControl.crear(dat);
+                this.actualizarTabla();
+                JOptionPane.showMessageDialog(rootPane, "Dignidad se creo");
+            } catch (Exception e1) {
+                JOptionPane.showMessageDialog(this, e1.getMessage(), "Error en la creación", JOptionPane.ERROR_MESSAGE);
 
-            this.dignidadControl.crear(dat);
-            this.actualizarTabla();
-
-            JOptionPane.showMessageDialog(rootPane, "Dignidad se creo");
+            }
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed
