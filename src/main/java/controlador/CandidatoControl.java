@@ -29,7 +29,7 @@ public class CandidatoControl {
 
     public void crear(String[] data) throws Exception {
 
-        try {
+        //try {
             var retorno = "No se puede crear";
             var nombreCandidato = data[0];
             var edad = Integer.valueOf(data[1]).intValue();
@@ -39,11 +39,11 @@ public class CandidatoControl {
             var candidato = new Candidato(nombreCandidato, edad, genero, lugarDeNacimiento, nrolista);
 
             this.candidatoServiceImpl.crear(candidato);
-        } catch (NumberFormatException e1) {
+        /*} catch (NumberFormatException e1) {
             throw new RuntimeException("Error al ingresar los datos");
         } catch (RuntimeException e1) {
             throw new RuntimeException("Nro lista existe");
-        }
+        }*/
 
     }
 
@@ -61,7 +61,7 @@ public class CandidatoControl {
 
     public String modifcar(String[] data) {
 
-        try {
+        //try {
 
             var retorno = "No se pudo crear el candidato";
             var nombreCandidato = data[0];
@@ -76,11 +76,11 @@ public class CandidatoControl {
             return retorno;
             
 
-        } catch (NumberFormatException e1) {
+        /*} catch (NumberFormatException e1) {
             throw new RuntimeException("Error en los parametros");
         } catch (RuntimeException e1) {
             throw new RuntimeException("Nro lista existe");
-        }
+        }*/
 
     }
 
@@ -91,16 +91,16 @@ public class CandidatoControl {
 
     public void eliminar(String listas) {
 
-        try {
+        //try {
 
             var lista = Integer.valueOf(listas).intValue();
             this.candidatoServiceImpl.eliminar(lista);
 
-        } catch (NumberFormatException e1) {
+        /*} catch (NumberFormatException e1) {
             throw new RuntimeException("Error en los parametros");
         } catch (RuntimeException e1) {
             throw new RuntimeException("Nro lista existe");
-        }
+        }*/
     }
 
     public Candidato buscarPorNombre(String nombreCandidato) {

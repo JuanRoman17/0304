@@ -24,5 +24,7 @@ public interface CandidatoService {
     public void modificar(Candidato candidato, int lista);
 
     public void eliminar(int lista);
+    
+    public Candidato busacarPorNombre(String nombre);
 
 }

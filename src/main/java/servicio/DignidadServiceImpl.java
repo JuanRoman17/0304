@@ -61,6 +61,20 @@ public class DignidadServiceImpl implements DignidadService {
 
         }
     }
+
+    @Override
+    public Dignidad buscarPorPublicidad(String nombre) {
+        Dignidad retorno = null;
+        
+        for(var dignidad:this.dignidadList){
+            if(nombre.equals(dignidad.getPublicidad())){
+                retorno=dignidad;
+                break;
+            }
+        }
+
+        return retorno;
+    }
 }
         
     

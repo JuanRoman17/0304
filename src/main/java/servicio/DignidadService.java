@@ -22,5 +22,7 @@ public interface DignidadService {
     public void modificar(Dignidad dignidad, int codigo);
 
     public void eliminar(int codigo);
+    
+    public Dignidad buscarPorPublicidad(String nombre);
 
 }

@@ -82,4 +82,18 @@ public class CandidatoServiceImpl implements CandidatoService {
     
     }
 
+    @Override
+    public Candidato busacarPorNombre(String nombre) {
+        Candidato retorno = null;
+        
+        for(var candidato:this.candidatoList){
+            if(nombre.equals(candidato.getNombreCandidato())){
+                retorno=candidato;
+                break;
+            }
+        }
+
+        return retorno;
+    }
+
 }

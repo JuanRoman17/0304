@@ -230,13 +230,13 @@ public class VentanaEleccionCrear extends javax.swing.JInternalFrame {
             data[2] = this.jTextField3.getText();
             data[3] = this.jComboBox1.getSelectedItem().toString();//
             data[4] = this.jComboBox2.getSelectedItem().toString();//
-            try {
+            //try {
                 this.eleccionControl.crear(data);
                 this.actualizarTabla();
                 JOptionPane.showMessageDialog(rootPane, "Eleccion se creo");
-            } catch (Exception e1) {
+            /*} catch (Exception e1) {
                 JOptionPane.showMessageDialog(this, e1.getMessage(), "Error al crear", JOptionPane.ERROR_MESSAGE);
-            }
+            }*/
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

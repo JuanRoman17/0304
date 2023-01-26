@@ -23,4 +23,6 @@ public interface EleccionService {
 
     public List<Eleccion> listar();
     
+    
+    
 }

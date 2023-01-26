@@ -22,7 +22,7 @@ public class DignidadControl {
 
     public void crear(String[] dat) {
 
-        try {
+        //try {
             var publicidad = dat[0];
             var campaña = dat[1];
             var propuestas = dat[2];
@@ -30,16 +30,16 @@ public class DignidadControl {
             var dignidad = new Dignidad(publicidad, campaña, propuestas, codigo);
 
             this.dignidadServiceImpl.crear(dignidad);
-        } catch (NumberFormatException e1) {
+        /*} catch (NumberFormatException e1) {
             throw new RuntimeException("Error en los parametros");
         } catch (RuntimeException e1) {
             throw new RuntimeException("Nro lista existe");
-        }
+        }*/
     }
 
     public String modificar(String[] dat) {
 
-        try {
+        //try {
             var retorno = "No se pudo crear";
             var publicidad = dat[0];
             var campaña = dat[1];
@@ -50,11 +50,11 @@ public class DignidadControl {
             this.dignidadServiceImpl.modificar(dignidad, codigo);
             retorno = "Dignidad" + dignidad.getCodigo() + "Modificado";
             return retorno;
-        } catch (NumberFormatException e1) {
+        /*} catch (NumberFormatException e1) {
             throw new RuntimeException("Error en los parametros");
         } catch (RuntimeException e1) {
             throw new RuntimeException("Nro lista existe");
-        }
+        }*/
     }
 
     public List<Dignidad> listar() {
@@ -64,13 +64,13 @@ public class DignidadControl {
 
     public void eliminar(String codigos) {
 
-        try {
+        //try {
             var codigo = Integer.valueOf(codigos).intValue();
             this.dignidadServiceImpl.eliminar(codigo);
-        } catch (NumberFormatException e1) {
+        /*} catch (NumberFormatException e1) {
             throw new RuntimeException("Error en los parametros");
         } catch (RuntimeException e1) {
             throw new RuntimeException("Nro lista existe");
-        }
+        }*/
     }
 }
