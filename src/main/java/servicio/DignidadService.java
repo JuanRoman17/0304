@@ -24,5 +24,9 @@ public interface DignidadService {
     public void eliminar(int codigo);
     
     public Dignidad buscarPorPublicidad(String nombre);
+    
+    public void almacenarArchivo(Dignidad dignidad, String ruta);
+    
+    public List<Dignidad> recuperarArchivo(String ruta);
 
 }

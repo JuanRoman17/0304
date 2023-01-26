@@ -4,8 +4,12 @@
  */
 package vista;
 
+import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
+import modelo.Candidato;
+import servicio.CandidatoServiceImpl;
+import servicio.DignidadServiceImpl;
 
 /**
  *
@@ -437,6 +441,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new VentanaPrincipal().setVisible(true);
+                
+                var candidatoServiceImpl = new CandidatoServiceImpl();
+                List<Candidato> candidatoList = candidatoServiceImpl.recuperarArchivo("c:/TProgra/Candidato.dat");
+                candidatoServiceImpl.setCandidatoList(candidatoList);
+                
+                
+                
             }
         });
     }

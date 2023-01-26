@@ -4,8 +4,17 @@
  */
 package servicio;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInput;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import modelo.Eleccion;
 
 /**
@@ -55,7 +64,7 @@ public class EleccionServiceImpl implements EleccionService {
 
     @Override
     public void eliminar(int nroEleccion) {
-        
+
         var indice = -1;
         for (var eleciones : this.eleccionList) {
             indice++;
@@ -67,6 +76,34 @@ public class EleccionServiceImpl implements EleccionService {
         }
 
     }
+
+    @Override
+    public void almacenarArchivo(Eleccion eleccion, String ruta) {
+
+        ObjectOutputStream salida = null;
+
+        try {
+            salida = new ObjectOutputStream(new FileOutputStream(ruta, true));
+            salida.writeObject(eleccion);
+            salida.close();
+
+        } catch (Exception ex) {
+            Logger.getLogger(EleccionServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    @Override
+    public List<Eleccion> recuperarArchivo(String ruta) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public static List<Eleccion> getEleccionList() {
+        return eleccionList;
+    }
+
+    public static void setEleccionList(List<Eleccion> eleccionList) {
+        EleccionServiceImpl.eleccionList = eleccionList;
+    }
+
 }
-
-

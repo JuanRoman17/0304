@@ -4,11 +4,13 @@
  */
 package modelo;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Juan Diego Roman
  */
-public class Dignidad {
+public class Dignidad implements Serializable{
 
     private String publicidad;
     private String campaña;

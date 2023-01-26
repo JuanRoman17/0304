@@ -4,8 +4,16 @@
  */
 package servicio;
 
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import modelo.Dignidad;
 
 /**
@@ -13,7 +21,7 @@ import modelo.Dignidad;
  * @author Juan Diego Roman
  */
 public class DignidadServiceImpl implements DignidadService {
-    
+
     private static List<Dignidad> dignidadList = new ArrayList<>();
 
     @Override
@@ -41,9 +49,9 @@ public class DignidadServiceImpl implements DignidadService {
     @Override
     public void modificar(Dignidad dignidad, int codigo) {
         var indice = -1;
-        for (var candidatos : this.dignidadList ){
+        for (var candidatos : this.dignidadList) {
             indice++;
-            if(codigo ==candidatos.getCodigo()){
+            if (codigo == candidatos.getCodigo()) {
                 this.dignidadList.set(indice, dignidad);
             }
         }
@@ -65,18 +73,71 @@ public class DignidadServiceImpl implements DignidadService {
     @Override
     public Dignidad buscarPorPublicidad(String nombre) {
         Dignidad retorno = null;
-        
-        for(var dignidad:this.dignidadList){
-            if(nombre.equals(dignidad.getPublicidad())){
-                retorno=dignidad;
+
+        for (var dignidad : this.dignidadList) {
+            if (nombre.equals(dignidad.getPublicidad())) {
+                retorno = dignidad;
                 break;
             }
         }
 
         return retorno;
     }
-}
-        
-    
 
-   
+    @Override
+    public void almacenarArchivo(Dignidad dignidad, String ruta) {
+        DataOutputStream salida = null;
+
+        try {
+            salida = new DataOutputStream(new FileOutputStream(ruta, true));
+            salida.writeUTF(dignidad.getPublicidad());
+            salida.writeUTF(dignidad.getCampaña());
+            salida.writeUTF(dignidad.getPropuestas());
+            salida.writeInt(dignidad.getCodigo());
+
+        } catch (IOException ex) {
+            Logger.getLogger(DignidadServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            try {
+                salida.close();
+            } catch (IOException ex1) {
+                Logger.getLogger(DignidadServiceImpl.class.getName()).log(Level.SEVERE, null, ex1);
+            }
+        }
+    }
+
+    @Override
+    public List<Dignidad> recuperarArchivo(String ruta) {
+        var dignidadList = new ArrayList<Dignidad>();
+        DataInputStream entrada = null;
+
+        try {
+            entrada = new DataInputStream(new FileInputStream(ruta));
+            while (true) {
+                while (true) {
+                    var publicidad = entrada.readUTF();
+                    var campaña = entrada.readUTF();
+                    var propuesta = entrada.readUTF();
+                    var codigo = entrada.readInt();
+                    var dignidad = new Dignidad(publicidad, campaña, propuesta, codigo);
+                }
+            }
+        } catch (IOException e) {
+            try {
+                entrada.close();
+            } catch (IOException ex) {
+                Logger.getLogger(DignidadServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return dignidadList;
+
+    }
+
+    public static List<Dignidad> getDignidadList() {
+        return dignidadList;
+    }
+
+    public static void setDignidadList(List<Dignidad> dignidadList) {
+        DignidadServiceImpl.dignidadList = dignidadList;
+    }
+    
+}

@@ -3,12 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package modelo;
+import java.io.Serializable;
 import modelo.Candidato;
 /**
  *
  * @author Juan Diego Roman
  */
-public class Eleccion {
+public class Eleccion implements Serializable{
 
     private String canton;
     private  Candidato candidato;

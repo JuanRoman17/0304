@@ -4,6 +4,7 @@
  */
 package controlador;
 
+import java.io.Serializable;
 import java.util.List;
 import modelo.Candidato;
 import servicio.CandidatoServiceImpl;
@@ -12,7 +13,7 @@ import servicio.CandidatoServiceImpl;
  *
  * @author Juan Diego Roman
  */
-public class CandidatoControl {
+public class CandidatoControl  {
 
     private CandidatoServiceImpl candidatoServiceImpl = new CandidatoServiceImpl();
     //private static CandidatoControl instance;
@@ -22,12 +23,12 @@ public class CandidatoControl {
             instance = new CandidatoControl();
         }
         return instance;
-    }*/
+    }
     public CandidatoControl() {
 
-    }
+    }*/
 
-    public void crear(String[] data) throws Exception {
+    public Candidato crear(String[] data) throws Exception {
 
         //try {
             var retorno = "No se puede crear";
@@ -44,6 +45,7 @@ public class CandidatoControl {
         } catch (RuntimeException e1) {
             throw new RuntimeException("Nro lista existe");
         }*/
+        return candidato;
 
     }
 

@@ -12,8 +12,10 @@ import modelo.Candidato;
  * @author Juan Diego Roman
  */
 public interface CandidatoService {
-
+    
     public void crear(Candidato candidato);
+
+    //public void crearArchivo(Candidato candidato);
 
     public List<Candidato> listar();
 
@@ -26,5 +28,9 @@ public interface CandidatoService {
     public void eliminar(int lista);
     
     public Candidato busacarPorNombre(String nombre);
+    
+    public void almacenarArchivo(Candidato candidato, String ruta);
+    
+    public List<Candidato> recuperarArchivo(String ruta);
 
 }
